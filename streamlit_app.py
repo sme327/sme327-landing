@@ -12,34 +12,25 @@ st.set_page_config(
 # ── App Configuration ─────────────────────────────────────────────────────────
 
 WORLD_CUP_APP_URL = "PASTE_WORLD_CUP_LINK_HERE"
-FANTASY_APP_URL = "PASTE_FANTASY_LINK_HERE"
-
-TAG_STYLE = {
-    "Streamlit":        ("rgba(96,165,250,0.12)",  "rgba(96,165,250,0.35)",  "#60a5fa"),
-    "Sports":           ("rgba(52,211,153,0.12)",  "rgba(52,211,153,0.35)",  "#34d399"),
-    "Family":           ("rgba(192,132,252,0.12)", "rgba(192,132,252,0.35)", "#c084fc"),
-    "Fantasy Football": ("rgba(52,211,153,0.12)",  "rgba(52,211,153,0.35)",  "#34d399"),
-    "Analytics":        ("rgba(192,132,252,0.12)", "rgba(192,132,252,0.35)", "#c084fc"),
-    "Data":             ("rgba(251,191,36,0.12)",  "rgba(251,191,36,0.35)",  "#fbbf24"),
-}
+FANTASY_APP_URL   = "PASTE_FANTASY_LINK_HERE"
 
 PROJECTS = [
     {
-        "title": "World Cup Family HQ",
+        "title":       "World Cup Family HQ",
         "description": "Our family's World Cup central hub. Pools, passports, match tracking, leaderboards, and more.",
-        "tags": ["Streamlit", "Sports", "Family"],
-        "url": WORLD_CUP_APP_URL,
-        "thumbnail": "assets/worldcup_hq_image.png",
-        "icon": "⚽",
+        "url":         WORLD_CUP_APP_URL,
+        "thumbnail":   "assets/worldcup_hq_image.png",
+        "icon":        "⚽",
+        "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
     },
     {
-        "title": "25-Year Fantasy Football Museum",
+        "title":       "25-Year Fantasy Football Museum",
         "description": "Explore 25 seasons of league history, analytics, records, and memories.",
-        "tags": ["Streamlit", "Fantasy Football", "Analytics"],
-        "url": FANTASY_APP_URL,
-        "thumbnail": "assets/25_FFL.png",
-        "icon": "🏈",
+        "url":         FANTASY_APP_URL,
+        "thumbnail":   "assets/25_FFL.png",
+        "icon":        "🏈",
+        "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
     },
 ]
@@ -49,11 +40,23 @@ _MUSIC_SVG  = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColo
 _GAME_SVG   = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 10 18.5 10s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>'
 
 COMING_SOON = [
-    {"svg": _TROPHY_SVG, "title": "Fantasy League 2",      "subtitle": "Coming soon", "color": "#3b82f6", "bg": "rgba(59,130,246,0.15)"},
-    {"svg": _TROPHY_SVG, "title": "Fantasy League 3",      "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
-    {"svg": _MUSIC_SVG,  "title": "Seattle Concert Finder","subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
-    {"svg": _GAME_SVG,   "title": "Strategy Game Prototype","subtitle":"Coming soon", "color": "#f59e0b", "bg": "rgba(245,158,11,0.15)"},
+    {"svg": _TROPHY_SVG, "title": "Fantasy League 2",       "subtitle": "Coming soon", "color": "#3b82f6", "bg": "rgba(59,130,246,0.15)"},
+    {"svg": _TROPHY_SVG, "title": "Fantasy League 3",       "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
+    {"svg": _MUSIC_SVG,  "title": "Seattle Concert Finder", "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
+    {"svg": _GAME_SVG,   "title": "Strategy Game Prototype","subtitle": "Coming soon", "color": "#f59e0b", "bg": "rgba(245,158,11,0.15)"},
 ]
+
+_GH_SVG = """<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
+           0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41
+           -1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815
+           2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925
+           0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23
+           .96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65
+           .24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925
+           .435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57
+           A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+</svg>"""
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -69,19 +72,14 @@ def img_to_data_uri(path: str) -> str | None:
         return None
 
 
-def tag_html(label: str) -> str:
-    bg, border, color = TAG_STYLE.get(label, ("rgba(148,163,184,0.12)", "rgba(148,163,184,0.35)", "#94a3b8"))
-    return (
-        f'<span style="background:{bg};border:1px solid {border};color:{color};'
-        f'padding:4px 12px;border-radius:100px;font-size:12px;font-weight:500;">'
-        f'{label}</span>'
-    )
-
-
 def project_card_html(p: dict) -> str:
     uri = img_to_data_uri(p["thumbnail"])
+    obj_pos = p.get("obj_pos", "center center")
     if uri:
-        thumb = f'<img src="{uri}" alt="{p["title"]}" style="width:100%;height:100%;object-fit:cover;display:block;">'
+        thumb = (
+            f'<img src="{uri}" alt="{p["title"]}" '
+            f'style="width:100%;height:100%;object-fit:cover;object-position:{obj_pos};display:block;">'
+        )
     else:
         thumb = (
             f'<div style="width:100%;height:100%;background:{p["fallback_gradient"]};'
@@ -89,22 +87,19 @@ def project_card_html(p: dict) -> str:
             f'{p["icon"]}</div>'
         )
 
-    tags = " ".join(tag_html(t) for t in p["tags"])
-
-    disabled = p["url"].startswith("PASTE")
+    disabled   = p["url"].startswith("PASTE")
     btn_href   = "#" if disabled else p["url"]
     btn_target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
-    btn_style  = "background:#374151;cursor:not-allowed;" if disabled else "background:#3b82f6;"
+    btn_bg     = "background:#4a6fa5;cursor:not-allowed;" if disabled else "background:#2d7ef8;"
 
     return f"""
 <div class="proj-card">
   <div class="proj-thumb">{thumb}</div>
   <div class="proj-body">
-    <div style="font-size:22px;margin-bottom:12px;">{p["icon"]}</div>
+    <div class="proj-icon">{p["icon"]}</div>
     <div class="proj-title">{p["title"]}</div>
     <div class="proj-desc">{p["description"]}</div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;">{tags}</div>
-    <a href="{btn_href}" {btn_target} class="proj-btn" style="{btn_style}">Open App →</a>
+    <a href="{btn_href}" {btn_target} class="proj-btn" style="{btn_bg}">Launch App →</a>
   </div>
 </div>"""
 
@@ -124,14 +119,11 @@ def coming_soon_card_html(item: dict) -> str:
 
 def render():
     hero_uri = img_to_data_uri("assets/seattle_hero.png")
-    if hero_uri:
-        hero_bg_css = f"background-image:url('{hero_uri}');background-size:cover;background-position:center top;"
-    else:
-        hero_bg_css = (
-            "background:linear-gradient(135deg,"
-            "#080d1a 0%,#0b1530 20%,#0f2044 38%,"
-            "#0d1a35 55%,#080d1a 100%);"
-        )
+    hero_bg_css = (
+        f"background-image:url('{hero_uri}');background-size:cover;background-position:center top;"
+        if hero_uri
+        else "background:linear-gradient(135deg,#080d1a 0%,#0b1530 20%,#0f2044 38%,#080d1a 100%);"
+    )
 
     st.markdown(f"""
 <style>
@@ -147,7 +139,7 @@ header,.stDeployButton
 /* ── App background ── */
 .stApp{{background:#080d1a!important;}}
 
-/* ── Remove all default padding from Streamlit containers ── */
+/* ── Remove all default Streamlit padding/gaps ── */
 .main,.main>div{{padding:0!important;}}
 .block-container{{padding:0!important;max-width:100%!important;margin:0!important;}}
 [data-testid="stMainBlockContainer"]{{padding:0!important;max-width:100%!important;}}
@@ -163,122 +155,134 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 }}
 
 /* ══════════════════════════════════════════════════════
-   NAV BAR
+   NAV BAR — minimal
 ══════════════════════════════════════════════════════ */
 .nav{{
   position:sticky;top:0;z-index:1000;
   background:rgba(8,13,26,0.97);
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(59,130,246,0.18);
-  padding:0 3rem;height:65px;
+  border-bottom:1px solid rgba(59,130,246,0.15);
+  padding:0 3rem;height:60px;
   display:flex;align-items:center;justify-content:space-between;
 }}
 .nav-brand{{display:flex;align-items:center;gap:12px;text-decoration:none;}}
-.nav-rocket{{font-size:26px;line-height:1;}}
-.nav-name{{font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1;}}
+.nav-rocket{{font-size:24px;line-height:1;}}
+.nav-name{{font-size:19px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1;}}
 .nav-sub{{font-size:10px;font-weight:600;color:#64748b;letter-spacing:2.5px;text-transform:uppercase;}}
-.nav-links{{display:flex;align-items:center;gap:4px;}}
+.nav-right{{display:flex;align-items:center;gap:6px;}}
 .nav-link{{
   color:#94a3b8;text-decoration:none;font-size:15px;font-weight:500;
-  padding:8px 16px;border-radius:6px;position:relative;transition:color .2s;
+  padding:7px 14px;border-radius:6px;position:relative;transition:color .2s;
 }}
 .nav-link:hover{{color:#fff;}}
 .nav-link.active{{color:#fff;}}
 .nav-link.active::after{{
-  content:'';position:absolute;bottom:4px;left:16px;right:16px;
+  content:'';position:absolute;bottom:3px;left:14px;right:14px;
   height:2px;background:#3b82f6;border-radius:2px;
 }}
+.nav-gh{{
+  color:#94a3b8;text-decoration:none;padding:7px 10px;
+  border-radius:6px;transition:color .2s;display:flex;align-items:center;
+}}
+.nav-gh:hover{{color:#fff;}}
 .nav-contact{{
   display:flex;align-items:center;gap:7px;
   color:#fff;text-decoration:none;font-size:14px;font-weight:600;
-  padding:8px 18px;border:1.5px solid rgba(255,255,255,0.25);
-  border-radius:8px;margin-left:8px;transition:all .2s;
+  padding:7px 18px;border:1.5px solid rgba(255,255,255,0.22);
+  border-radius:8px;margin-left:4px;transition:all .2s;
 }}
 .nav-contact:hover{{border-color:#3b82f6;color:#60a5fa;}}
 
 /* ══════════════════════════════════════════════════════
-   HERO
+   HERO — cleaner, slightly shorter
 ══════════════════════════════════════════════════════ */
 .hero{{
-  position:relative;min-height:430px;
+  position:relative;height:440px;
   {hero_bg_css}
   display:flex;align-items:center;overflow:hidden;
 }}
 .hero-overlay{{
   position:absolute;inset:0;
-  background:linear-gradient(
-    to right,
-    rgba(8,13,26,.94) 0%,
-    rgba(8,13,26,.75) 38%,
-    rgba(8,13,26,.25) 62%,
-    rgba(8,13,26,.08) 100%
-  );
+  background:
+    linear-gradient(to right,  rgba(8,13,26,.92) 0%, rgba(8,13,26,.68) 40%, rgba(8,13,26,.15) 65%, transparent 100%),
+    linear-gradient(to bottom, transparent 45%, rgba(8,13,26,0.75) 100%);
 }}
-.hero-content{{position:relative;z-index:2;padding:64px 3rem;max-width:680px;}}
-.hero-title{{font-size:84px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:22px;}}
+.hero-content{{position:relative;z-index:2;padding:0 3rem;max-width:600px;}}
+.hero-title{{font-size:86px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:18px;}}
 .hero-white{{color:#fff;}}
 .hero-blue{{color:#3b82f6;}}
-.hero-sub{{font-size:22px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:14px;}}
-.hero-body{{font-size:15px;color:#94a3b8;line-height:1.75;margin-bottom:32px;}}
-.pills{{display:flex;flex-wrap:nowrap;gap:8px;}}
-.pill{{
-  display:flex;align-items:center;gap:5px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.14);
-  border-radius:100px;padding:6px 13px;
-  font-size:13px;font-weight:500;color:#e2e8f0;white-space:nowrap;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-}}
+.hero-tagline{{font-size:20px;font-weight:600;color:rgba(255,255,255,0.82);line-height:1.4;}}
 
 /* ══════════════════════════════════════════════════════
-   SECTIONS
+   FEATURED PROJECTS — floats over bottom of hero
 ══════════════════════════════════════════════════════ */
-.section{{padding:0 3rem;background:#080d1a;}}
+.proj-section{{
+  position:relative;z-index:5;
+  margin-top:-90px;
+  padding:0 3rem;
+  background:transparent;
+}}
 .sec-hdr{{
   display:flex;align-items:center;gap:12px;
-  padding:42px 0 28px;
-  font-size:22px;font-weight:700;color:#fff;
+  padding:0 0 20px;
+  font-size:20px;font-weight:700;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,0.8);
 }}
-.sec-bar{{width:4px;height:26px;background:#3b82f6;border-radius:2px;flex-shrink:0;}}
+.sec-bar{{width:4px;height:24px;background:#3b82f6;border-radius:2px;flex-shrink:0;}}
 
 /* ══════════════════════════════════════════════════════
    PROJECT CARDS
 ══════════════════════════════════════════════════════ */
-.proj-grid{{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding-bottom:16px;}}
+.proj-grid{{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:0;}}
 .proj-card{{
-  background:rgba(15,23,42,0.96);
-  border:1px solid rgba(59,130,246,0.2);
+  background:rgba(12,20,38,0.97);
+  border:1px solid rgba(59,130,246,0.22);
   border-radius:16px;overflow:hidden;
-  display:flex;min-height:265px;
+  display:flex;height:260px;
   transition:border-color .3s,transform .25s,box-shadow .3s;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }}
 .proj-card:hover{{
-  border-color:rgba(59,130,246,.55);
+  border-color:rgba(59,130,246,.6);
   transform:translateY(-3px);
-  box-shadow:0 20px 60px rgba(59,130,246,0.12);
+  box-shadow:0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(59,130,246,0.15);
 }}
-.proj-thumb{{flex:0 0 42%;position:relative;overflow:hidden;}}
-.proj-body{{flex:1;padding:28px 28px 24px;display:flex;flex-direction:column;}}
-.proj-title{{font-size:22px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.25;}}
-.proj-desc{{font-size:14px;color:#94a3b8;line-height:1.65;margin-bottom:20px;flex-grow:1;}}
+.proj-thumb{{flex:0 0 48%;position:relative;overflow:hidden;}}
+.proj-body{{
+  flex:1;padding:26px 26px 22px;
+  display:flex;flex-direction:column;
+}}
+.proj-icon{{font-size:20px;margin-bottom:10px;}}
+.proj-title{{font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.25;}}
+.proj-desc{{font-size:13.5px;color:#94a3b8;line-height:1.6;flex-grow:1;margin-bottom:18px;}}
 .proj-btn{{
   display:inline-flex;align-items:center;gap:8px;
   color:#fff!important;text-decoration:none!important;
-  font-size:15px;font-weight:600;padding:11px 24px;
-  border-radius:8px;width:fit-content;
+  font-size:14px;font-weight:700;padding:10px 22px;
+  border-radius:8px;width:fit-content;letter-spacing:0.2px;
   transition:filter .2s,transform .15s;
 }}
-.proj-btn:hover{{filter:brightness(1.18);transform:translateX(2px);}}
+.proj-btn:hover{{filter:brightness(1.2);transform:translateX(3px);}}
+
+/* ══════════════════════════════════════════════════════
+   GENERAL SECTION (coming soon, etc.)
+══════════════════════════════════════════════════════ */
+.section{{padding:0 3rem;background:#080d1a;}}
+.section-hdr{{
+  display:flex;align-items:center;gap:12px;
+  padding:44px 0 24px;
+  font-size:20px;font-weight:700;color:#fff;
+}}
 
 /* ══════════════════════════════════════════════════════
    COMING SOON CARDS
 ══════════════════════════════════════════════════════ */
-.cs-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:52px;}}
+.cs-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-bottom:52px;}}
 .cs-card{{
   background:rgba(15,23,42,0.5);
   border:1.5px dashed rgba(100,116,139,0.3);
-  border-radius:12px;padding:26px 22px;
-  display:flex;align-items:center;gap:16px;
+  border-radius:12px;padding:24px 20px;
+  display:flex;align-items:center;gap:14px;
   transition:border-color .3s,background .3s;
 }}
 .cs-card:hover{{
@@ -286,48 +290,54 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   background:rgba(15,23,42,0.75);
 }}
 .cs-icon{{
-  width:52px;height:52px;border-radius:12px;
+  width:50px;height:50px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }}
-.cs-title{{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}}
-.cs-sub{{font-size:13px;color:#64748b;}}
+.cs-title{{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;}}
+.cs-sub{{font-size:12px;color:#64748b;}}
 
 /* ══════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════ */
 .footer{{
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding:28px 3rem;
+  border-top:1px solid rgba(255,255,255,0.07);
+  padding:26px 3rem;
   display:flex;align-items:center;justify-content:center;
   gap:20px;background:#080d1a;
 }}
 .footer-text{{font-size:14px;color:#64748b;}}
-.footer-divider{{width:1px;height:18px;background:rgba(255,255,255,0.15);}}
-.footer-icons{{display:flex;align-items:center;gap:22px;}}
+.footer-divider{{width:1px;height:18px;background:rgba(255,255,255,0.12);}}
+.footer-icons{{display:flex;align-items:center;gap:20px;}}
 .footer-icon{{color:#64748b;text-decoration:none;transition:color .2s;display:flex;align-items:center;}}
 .footer-icon:hover{{color:#fff;}}
 
 /* ══════════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════════ */
-@media(max-width:960px){{
+@media(max-width:1024px){{
   .proj-grid{{grid-template-columns:1fr;}}
+  .proj-card{{height:auto;min-height:220px;}}
+  .proj-section{{margin-top:-60px;}}
+}}
+@media(max-width:960px){{
   .cs-grid{{grid-template-columns:1fr 1fr;}}
-  .proj-card{{flex-direction:column;min-height:auto;}}
-  .proj-thumb{{flex:0 0 220px;}}
-  .hero-title{{font-size:58px;}}
-  .nav,.section,.footer{{padding-left:1.5rem!important;padding-right:1.5rem!important;}}
+  .proj-card{{flex-direction:column;}}
+  .proj-thumb{{flex:0 0 200px;}}
+  .hero-title{{font-size:60px;}}
+  .hero{{height:380px;}}
+  .nav,.proj-section,.section,.footer{{padding-left:1.5rem!important;padding-right:1.5rem!important;}}
 }}
 @media(max-width:600px){{
   .cs-grid{{grid-template-columns:1fr;}}
-  .hero-title{{font-size:44px;}}
-  .nav-links .nav-link:not(.active){{display:none;}}
+  .hero-title{{font-size:46px;}}
+  .hero{{height:320px;}}
+  .proj-section{{margin-top:-50px;}}
 }}
 </style>
 """, unsafe_allow_html=True)
 
-    # ── Navigation ──────────────────────────────────────────────────────────
-    st.markdown("""
+    # ── Navigation (minimal) ─────────────────────────────────────────────────
+    st.markdown(f"""
 <nav class="nav">
   <a href="#" class="nav-brand">
     <span class="nav-rocket">🚀</span>
@@ -336,13 +346,12 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
       <div class="nav-sub">Project Hub</div>
     </div>
   </a>
-  <div class="nav-links">
+  <div class="nav-right">
     <a href="#" class="nav-link active">Home</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#about" class="nav-link">About Me</a>
-    <a href="#tech" class="nav-link">Tech Stack</a>
+    <a href="https://github.com/sme327" target="_blank" rel="noopener noreferrer"
+       class="nav-gh" title="GitHub">{_GH_SVG}</a>
     <a href="mailto:sme327@gmail.com" class="nav-contact">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="2.5"
            stroke-linecap="round" stroke-linejoin="round">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -354,7 +363,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </nav>
 """, unsafe_allow_html=True)
 
-    # ── Hero ────────────────────────────────────────────────────────────────
+    # ── Hero (clean — title + one tagline only) ──────────────────────────────
     st.markdown("""
 <div class="hero">
   <div class="hero-overlay"></div>
@@ -362,28 +371,15 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
     <div class="hero-title">
       <span class="hero-white">sme</span><span class="hero-blue">327</span>
     </div>
-    <div class="hero-sub">
-      Projects, dashboards, and tools<br>built with data, code, and curiosity.
-    </div>
-    <div class="hero-body">
-      Explore my collection of interactive apps and tools.<br>
-      More projects and experiments coming soon!
-    </div>
-    <div class="pills">
-      <span class="pill">👑 Streamlit</span>
-      <span class="pill">🐍 Python</span>
-      <span class="pill">📊 Data</span>
-      <span class="pill">⚽ Sports</span>
-      <span class="pill">📈 Analytics</span>
-    </div>
+    <div class="hero-tagline">Projects, dashboards, and tools.</div>
   </div>
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Featured Projects ────────────────────────────────────────────────────
+    # ── Featured Projects (floats over hero bottom) ──────────────────────────
     cards_html = "\n".join(project_card_html(p) for p in PROJECTS)
     st.markdown(f"""
-<div class="section" id="projects">
+<div class="proj-section" id="projects">
   <div class="sec-hdr">
     <div class="sec-bar"></div>
     Featured Projects
@@ -394,11 +390,11 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Coming Soon ─────────────────────────────────────────────────────────
+    # ── Coming Soon ──────────────────────────────────────────────────────────
     cs_html = "\n".join(coming_soon_card_html(c) for c in COMING_SOON)
     st.markdown(f"""
 <div class="section" id="coming-soon">
-  <div class="sec-hdr">
+  <div class="section-hdr">
     <div class="sec-bar"></div>
     🚀 More Projects Coming Soon
   </div>
