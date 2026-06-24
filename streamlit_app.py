@@ -46,18 +46,6 @@ COMING_SOON = [
     {"svg": _GAME_SVG,   "title": "Strategy Game Prototype","subtitle": "Coming soon", "color": "#f59e0b", "bg": "rgba(245,158,11,0.15)"},
 ]
 
-_GH_SVG = """<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-           0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41
-           -1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815
-           2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925
-           0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23
-           .96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65
-           .24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925
-           .435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57
-           A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-</svg>"""
-
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def img_to_data_uri(path: str) -> str | None:
@@ -153,46 +141,6 @@ div[data-testid="stVerticalBlock"]>div{{margin:0!important;padding:0!important;}
 body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;
 }}
-
-/* ══════════════════════════════════════════════════════
-   NAV BAR — minimal
-══════════════════════════════════════════════════════ */
-.nav{{
-  position:sticky;top:0;z-index:1000;
-  background:rgba(8,13,26,0.97);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(59,130,246,0.15);
-  padding:0 3rem;height:60px;
-  display:flex;align-items:center;justify-content:space-between;
-}}
-.nav-brand{{display:flex;align-items:center;gap:12px;text-decoration:none!important;}}
-.nav-brand *{{text-decoration:none!important;}}
-.nav-rocket{{font-size:24px;line-height:1;}}
-.nav-name{{font-size:19px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1;}}
-.nav-sub{{font-size:10px;font-weight:600;color:#64748b;letter-spacing:2.5px;text-transform:uppercase;}}
-.nav-right{{display:flex;align-items:center;gap:6px;}}
-.nav-link{{
-  color:#94a3b8;text-decoration:none;font-size:15px;font-weight:500;
-  padding:7px 14px;border-radius:6px;position:relative;transition:color .2s;
-}}
-.nav-link:hover{{color:#fff;}}
-.nav-link.active{{color:#fff;}}
-.nav-link.active::after{{
-  content:'';position:absolute;bottom:3px;left:14px;right:14px;
-  height:2px;background:#3b82f6;border-radius:2px;
-}}
-.nav-gh{{
-  color:#94a3b8;text-decoration:none;padding:7px 10px;
-  border-radius:6px;transition:color .2s;display:flex;align-items:center;
-}}
-.nav-gh:hover{{color:#fff;}}
-.nav-contact{{
-  display:flex;align-items:center;gap:7px;
-  color:#fff;text-decoration:none;font-size:14px;font-weight:600;
-  padding:7px 18px;border:1.5px solid rgba(255,255,255,0.22);
-  border-radius:8px;margin-left:4px;transition:all .2s;
-}}
-.nav-contact:hover{{border-color:#3b82f6;color:#60a5fa;}}
 
 /* ══════════════════════════════════════════════════════
    HERO — cleaner, slightly shorter
@@ -337,33 +285,6 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   .proj-section{{margin-top:-60px;}}
 }}
 </style>
-""", unsafe_allow_html=True)
-
-    # ── Navigation (minimal) ─────────────────────────────────────────────────
-    st.markdown(f"""
-<nav class="nav">
-  <a href="#" class="nav-brand">
-    <span class="nav-rocket">🚀</span>
-    <div>
-      <div class="nav-name">sme327</div>
-      <div class="nav-sub">Project Hub</div>
-    </div>
-  </a>
-  <div class="nav-right">
-    <a href="#" class="nav-link active">Home</a>
-    <a href="https://github.com/sme327" target="_blank" rel="noopener noreferrer"
-       class="nav-gh" title="GitHub">{_GH_SVG}</a>
-    <a href="mailto:sme327@gmail.com" class="nav-contact">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2.5"
-           stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>
-      Contact
-    </a>
-  </div>
-</nav>
 """, unsafe_allow_html=True)
 
     # ── Hero (clean — title + one tagline only) ──────────────────────────────
