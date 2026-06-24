@@ -11,8 +11,8 @@ st.set_page_config(
 
 # ── App Configuration ─────────────────────────────────────────────────────────
 
-WORLD_CUP_APP_URL = "PASTE_WORLD_CUP_LINK_HERE"
-FANTASY_APP_URL   = "PASTE_FANTASY_LINK_HERE"
+WORLD_CUP_APP_URL = "https://espinosa-world-cup.streamlit.app"
+FANTASY_APP_URL   = "https://insertwittynamehere.streamlit.app"
 
 PROJECTS = [
     {
@@ -165,7 +165,8 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   padding:0 3rem;height:60px;
   display:flex;align-items:center;justify-content:space-between;
 }}
-.nav-brand{{display:flex;align-items:center;gap:12px;text-decoration:none;}}
+.nav-brand{{display:flex;align-items:center;gap:12px;text-decoration:none!important;}}
+.nav-brand *{{text-decoration:none!important;}}
 .nav-rocket{{font-size:24px;line-height:1;}}
 .nav-name{{font-size:19px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1;}}
 .nav-sub{{font-size:10px;font-weight:600;color:#64748b;letter-spacing:2.5px;text-transform:uppercase;}}
@@ -197,28 +198,28 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
    HERO — cleaner, slightly shorter
 ══════════════════════════════════════════════════════ */
 .hero{{
-  position:relative;height:440px;
+  position:relative;height:550px;
   {hero_bg_css}
-  display:flex;align-items:center;overflow:hidden;
+  display:flex;align-items:flex-start;overflow:hidden;
 }}
 .hero-overlay{{
   position:absolute;inset:0;
   background:
-    linear-gradient(to right,  rgba(8,13,26,.92) 0%, rgba(8,13,26,.68) 40%, rgba(8,13,26,.15) 65%, transparent 100%),
-    linear-gradient(to bottom, transparent 45%, rgba(8,13,26,0.75) 100%);
+    linear-gradient(to right,  rgba(8,13,26,.90) 0%, rgba(8,13,26,.65) 40%, rgba(8,13,26,.12) 65%, transparent 100%),
+    linear-gradient(to bottom, transparent 50%, rgba(8,13,26,0.82) 100%);
 }}
-.hero-content{{position:relative;z-index:2;padding:0 3rem;max-width:600px;}}
-.hero-title{{font-size:86px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:18px;}}
+.hero-content{{position:relative;z-index:2;padding:72px 3rem 0;max-width:640px;}}
+.hero-title{{font-size:86px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:16px;}}
 .hero-white{{color:#fff;}}
 .hero-blue{{color:#3b82f6;}}
-.hero-tagline{{font-size:20px;font-weight:600;color:rgba(255,255,255,0.82);line-height:1.4;}}
+.hero-tagline{{font-size:19px;font-weight:500;color:rgba(255,255,255,0.78);line-height:1.5;max-width:480px;}}
 
 /* ══════════════════════════════════════════════════════
    FEATURED PROJECTS — floats over bottom of hero
 ══════════════════════════════════════════════════════ */
 .proj-section{{
   position:relative;z-index:5;
-  margin-top:-90px;
+  margin-top:-115px;
   padding:0 3rem;
   background:transparent;
 }}
@@ -324,14 +325,16 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   .proj-card{{flex-direction:column;}}
   .proj-thumb{{flex:0 0 200px;}}
   .hero-title{{font-size:60px;}}
-  .hero{{height:380px;}}
+  .hero{{height:460px;}}
+  .hero-content{{padding-top:60px;}}
   .nav,.proj-section,.section,.footer{{padding-left:1.5rem!important;padding-right:1.5rem!important;}}
 }}
 @media(max-width:600px){{
   .cs-grid{{grid-template-columns:1fr;}}
   .hero-title{{font-size:46px;}}
-  .hero{{height:320px;}}
-  .proj-section{{margin-top:-50px;}}
+  .hero{{height:380px;}}
+  .hero-content{{padding-top:50px;}}
+  .proj-section{{margin-top:-60px;}}
 }}
 </style>
 """, unsafe_allow_html=True)
@@ -371,7 +374,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
     <div class="hero-title">
       <span class="hero-white">sme</span><span class="hero-blue">327</span>
     </div>
-    <div class="hero-tagline">Projects, dashboards, and tools.</div>
+    <div class="hero-tagline">Exploring the world together through sports, data, and curiosity.</div>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -427,7 +430,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
                  A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
       </svg>
     </a>
-    <a href="https://linkedin.com/in/sme327" target="_blank" rel="noopener noreferrer"
+    <a href="https://www.linkedin.com/in/shawn-espinosa-b1240514/" target="_blank" rel="noopener noreferrer"
        class="footer-icon" title="LinkedIn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037
