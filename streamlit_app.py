@@ -25,7 +25,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
     },
     {
-        "title":       "25-Year Fantasy Football Museum",
+        "title":       "{insert witty name here} Museum",
         "description": "Explore 25 seasons of league history, analytics, records, and memories.",
         "url":         FANTASY_APP_URL,
         "thumbnail":   "assets/25_FFL.png",
