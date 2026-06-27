@@ -30,7 +30,7 @@ PROJECTS = [
         "title":       "Espinosa FFL Clubhouse",
         "description": "The Espinosa family fantasy football hub. Champions hall, rivalry room, season archive, and more.",
         "url":         CLUBHOUSE_APP_URL,
-        "thumbnail":   "assets/espinosa_ffl.png",
+        "thumbnail":   "assets/espinosa_ffl2.png",
         "icon":        "🏠",
         "obj_pos":     "center top",
         "fallback_gradient": "linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 45%, #0a1a0a 100%)",
