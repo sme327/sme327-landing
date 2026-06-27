@@ -27,6 +27,15 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
     },
     {
+        "title":       "Espinosa FFL Clubhouse",
+        "description": "The Espinosa family fantasy football hub. Champions hall, rivalry room, season archive, and more.",
+        "url":         CLUBHOUSE_APP_URL,
+        "thumbnail":   "assets/espinosa_ffl.png",
+        "icon":        "🏠",
+        "obj_pos":     "center top",
+        "fallback_gradient": "linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 45%, #0a1a0a 100%)",
+    },
+    {
         "title":       "{insert witty name here} FFL Museum",
         "description": "Explore 25 seasons of league history, analytics, records, and memories.",
         "url":         FANTASY_APP_URL,
@@ -43,15 +52,6 @@ PROJECTS = [
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
-    },
-    {
-        "title":       "Espinosa FFL Clubhouse",
-        "description": "The Espinosa family fantasy football hub. Champions hall, rivalry room, season archive, and more.",
-        "url":         CLUBHOUSE_APP_URL,
-        "thumbnail":   "assets/espinosa_ffl.png",
-        "icon":        "🏠",
-        "obj_pos":     "center top",
-        "fallback_gradient": "linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 45%, #0a1a0a 100%)",
     },
 ]
 
