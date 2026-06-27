@@ -11,8 +11,9 @@ st.set_page_config(
 
 # ── App Configuration ─────────────────────────────────────────────────────────
 
-WORLD_CUP_APP_URL = "https://espinosa-world-cup.streamlit.app"
-FANTASY_APP_URL   = "https://insertwittynamehere.streamlit.app"
+WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
+FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
+DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 
 PROJECTS = [
     {
@@ -33,6 +34,15 @@ PROJECTS = [
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
     },
+    {
+        "title":       "A New Dynasty FFL Museum",
+        "description": "A second league, a new chapter. Track history, rivalries, and records from a fresh dynasty in the making.",
+        "url":         DYNASTY_APP_URL,
+        "thumbnail":   "assets/dynasty_thumbnail.png",
+        "icon":        "🏆",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
+    },
 ]
 
 _TROPHY_SVG = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v1c0 .34.03.67.08 1H5.08C5.03 8.67 5 8.34 5 8zm7 6c-1.65 0-3-1.35-3-3V5h6v6c0 1.65-1.35 3-3 3zm7-6c0 .34-.03.67-.08 1h-2.08c.05-.33.08-.66.08-1V7h2v1z"/></svg>'
@@ -40,7 +50,6 @@ _MUSIC_SVG  = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColo
 _GAME_SVG   = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 10 18.5 10s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>'
 
 COMING_SOON = [
-    {"svg": _TROPHY_SVG, "title": "Fantasy League 2",       "subtitle": "Coming soon", "color": "#3b82f6", "bg": "rgba(59,130,246,0.15)"},
     {"svg": _TROPHY_SVG, "title": "Fantasy League 3",       "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
     {"svg": _MUSIC_SVG,  "title": "Seattle Concert Finder", "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
     {"svg": _GAME_SVG,   "title": "Strategy Game Prototype","subtitle": "Coming soon", "color": "#f59e0b", "bg": "rgba(245,158,11,0.15)"},
@@ -226,7 +235,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 /* ══════════════════════════════════════════════════════
    COMING SOON CARDS
 ══════════════════════════════════════════════════════ */
-.cs-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-bottom:52px;}}
+.cs-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding-bottom:52px;}}
 .cs-card{{
   background:rgba(15,23,42,0.5);
   border:1.5px dashed rgba(100,116,139,0.3);
