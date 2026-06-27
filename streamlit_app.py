@@ -14,6 +14,7 @@ st.set_page_config(
 WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
+CLUBHOUSE_APP_URL  = "PASTE_CLUBHOUSE_LINK_HERE"
 
 PROJECTS = [
     {
@@ -42,6 +43,15 @@ PROJECTS = [
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
+    },
+    {
+        "title":       "Espinosa FFL Clubhouse",
+        "description": "The Espinosa family fantasy football hub. Champions hall, rivalry room, season archive, and more.",
+        "url":         CLUBHOUSE_APP_URL,
+        "thumbnail":   "assets/espinosa_ffl.png",
+        "icon":        "🏠",
+        "obj_pos":     "center top",
+        "fallback_gradient": "linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 45%, #0a1a0a 100%)",
     },
 ]
 
