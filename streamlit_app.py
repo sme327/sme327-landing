@@ -14,7 +14,7 @@ st.set_page_config(
 WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
-CLUBHOUSE_APP_URL  = "PASTE_CLUBHOUSE_LINK_HERE"
+CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
 
 PROJECTS = [
     {
