@@ -26,7 +26,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
     },
     {
-        "title":       "{insert witty name here} Museum",
+        "title":       "{insert witty name here} FFL Museum",
         "description": "Explore 25 seasons of league history, analytics, records, and memories.",
         "url":         FANTASY_APP_URL,
         "thumbnail":   "assets/25_FFL.png",
@@ -38,7 +38,7 @@ PROJECTS = [
         "title":       "A New Dynasty FFL Museum",
         "description": "A second league, a new chapter. Track history, rivalries, and records from a fresh dynasty in the making.",
         "url":         DYNASTY_APP_URL,
-        "thumbnail":   "assets/dynasty_thumbnail.png",
+        "thumbnail":   "assets/FFL_AND.png",
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
