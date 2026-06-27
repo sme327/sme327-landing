@@ -13,56 +13,69 @@ streamlit run streamlit_app.py
 
 ---
 
+## Current Projects
+
+| Card | URL Variable | Live URL |
+|---|---|---|
+| World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
+| Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaffl.streamlit.app |
+| {insert witty name here} FFL Museum | `FANTASY_APP_URL` | insertwittynamehere.streamlit.app |
+| A New Dynasty FFL Museum | `DYNASTY_APP_URL` | anewdynasty.streamlit.app |
+
+Coming soon placeholders: **Fantasy League 3**, **Seattle Concert Finder**
+
+---
+
 ## Add a New Project
 
-Open `streamlit_app.py` and add an entry to the `PROJECTS` list:
+Add an entry to the `PROJECTS` list in `streamlit_app.py`:
 
 ```python
 {
-    "title": "My New App",
+    "title":       "My New App",
     "description": "Short description here.",
-    "tags": ["Streamlit", "Data"],       # picks from TAG_STYLE for colors
-    "url": "https://your-app.streamlit.app",
-    "thumbnail": "assets/my_app_thumbnail.png",
-    "icon": "🔥",                        # shown as fallback when no thumbnail
+    "url":         MY_APP_URL,            # define at the top of the file
+    "thumbnail":   "assets/my_app.png",  # drop image in assets/
+    "icon":        "🔥",                 # fallback if image is missing
+    "obj_pos":     "center center",      # CSS object-position for thumbnail crop
     "fallback_gradient": "linear-gradient(160deg, #100010 0%, #2d002d 100%)",
 },
 ```
 
-Drop a thumbnail image (any size — 800×500 is ideal) into `assets/` and point `"thumbnail"` at it. The card handles missing images gracefully with the gradient fallback.
-
-To add a new "coming soon" placeholder, append to `COMING_SOON` instead.
-
----
-
-## Replace URLs
-
-At the top of `streamlit_app.py`:
+Then define the URL constant at the top of the file alongside the others:
 
 ```python
-WORLD_CUP_APP_URL = "PASTE_WORLD_CUP_LINK_HERE"   # ← replace
-FANTASY_APP_URL   = "PASTE_FANTASY_LINK_HERE"      # ← replace
+MY_APP_URL = "https://my-app.streamlit.app"
 ```
 
-Buttons render as disabled (grey) until a real URL is pasted in.
+Drop a thumbnail image into `assets/` (wide crop, ~1200×600 recommended). The card
+handles missing images gracefully with the gradient fallback.
+
+To add a Coming Soon placeholder instead, append to `COMING_SOON`.
 
 ---
 
-## Add / Replace Images
+## Replace / Add Images
 
-| File | Purpose |
+| File | Used by |
 |---|---|
 | `assets/seattle_hero.png` | Hero background (wide, 1920×800+ recommended) |
-| `assets/world_cup_thumbnail.png` | World Cup card left panel |
-| `assets/fantasy_thumbnail.png` | Fantasy Football card left panel |
+| `assets/worldcup_hq_image.png` | World Cup card thumbnail |
+| `assets/espinosa_ffl2.png` | Espinosa FFL Clubhouse thumbnail |
+| `assets/25_FFL.png` | {insert witty name here} FFL Museum thumbnail |
+| `assets/FFL_AND.png` | A New Dynasty FFL Museum thumbnail |
 
-All images are base64-encoded at runtime — no CDN or external hosting needed. Missing images fall back to CSS gradients automatically.
+All images are base64-encoded at runtime — no CDN needed. Missing images fall
+back to CSS gradients automatically. Keep thumbnails under ~500KB to avoid slow
+cold starts on Streamlit Cloud.
 
 ---
 
 ## Deployment (Streamlit Cloud)
 
 1. Push this repo to GitHub.
-2. Go to [share.streamlit.io](https://share.streamlit.io) → **New app**.
+2. Go to [share.streamlit.io](https://share.streamlit.io) → **Create app**.
 3. Set **Main file path** → `streamlit_app.py`.
-4. Deploy — images in `assets/` are bundled with the repo.
+4. Deploy — images in `assets/` are bundled with the repo and served automatically.
+
+Streamlit Cloud redeploys automatically on every push to `main`.

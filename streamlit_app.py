@@ -62,7 +62,6 @@ _GAME_SVG   = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColo
 COMING_SOON = [
     {"svg": _TROPHY_SVG, "title": "Fantasy League 3",       "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
     {"svg": _MUSIC_SVG,  "title": "Seattle Concert Finder", "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
-    {"svg": _GAME_SVG,   "title": "Strategy Game Prototype","subtitle": "Coming soon", "color": "#f59e0b", "bg": "rgba(245,158,11,0.15)"},
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
