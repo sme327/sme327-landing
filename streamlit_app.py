@@ -314,7 +314,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
     <div class="hero-title">
       <span class="hero-white">sme</span><span class="hero-blue">327</span>
     </div>
-    <div class="hero-tagline">Exploring the world together through sports, data, and curiosity.</div>
+    <div class="hero-tagline">Exploring the world through sports &amp; data.</div>
   </div>
 </div>
 """, unsafe_allow_html=True)
