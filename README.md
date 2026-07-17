@@ -21,6 +21,7 @@ streamlit run streamlit_app.py
 | Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaffl.streamlit.app |
 | {insert witty name here} FFL Museum | `FANTASY_APP_URL` | insertwittynamehere.streamlit.app |
 | A New Dynasty FFL Museum | `DYNASTY_APP_URL` | anewdynasty.streamlit.app |
+| Sports Today | `SPORTS_TODAY_URL` | _not set — button disabled_ |
 
 Coming soon placeholders: **Fantasy League 3**, **Seattle Concert Finder**
 

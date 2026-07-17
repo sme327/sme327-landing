@@ -77,6 +77,7 @@ Coming soon items live in `COMING_SOON` (list of dicts: `svg`, `title`,
 | Espinosa FFL Clubhouse | Family fantasy football hub |
 | {insert witty name here} FFL Museum | **This is the real league name** — 25-year history. Not a placeholder. |
 | A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016 |
+| Sports Today | Daily sports companion (MLB/WNBA opportunities). Thumbnail + URL still pending. |
 
 Coming soon: **Fantasy League 3**, **Seattle Concert Finder**
 

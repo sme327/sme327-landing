@@ -15,6 +15,7 @@ WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
+SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
 
 PROJECTS = [
     {
@@ -52,6 +53,15 @@ PROJECTS = [
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
+    },
+    {
+        "title":       "Sports Today",
+        "description": "A daily sports companion that answers one question: what's worth paying attention to today? Curated MLB and WNBA opportunities with the evidence behind every call.",
+        "url":         SPORTS_TODAY_URL,
+        "thumbnail":   "assets/sports_today.png",
+        "icon":        "📊",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
     },
 ]
 
