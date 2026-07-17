@@ -34,7 +34,7 @@ PROJECTS = [
         "url":         SPORTS_TODAY_URL,
         "thumbnail":   "assets/sports_today.png",
         "icon":        "📊",
-        "obj_pos":     "center center",
+        "obj_pos":     "center top",
         "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
     },
     {
