@@ -16,8 +16,27 @@ FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
 SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
+CONCERT_ATLAS_URL  = "PASTE_CONCERT_ATLAS_URL_HERE"
 
 PROJECTS = [
+    {
+        "title":       "My Concert Atlas",
+        "description": "A visual journey through where the music has taken me.",
+        "url":         CONCERT_ATLAS_URL,
+        "thumbnail":   "assets/concert_atlas.png",
+        "icon":        "🎵",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",
+    },
+    {
+        "title":       "Sports Today",
+        "description": "A daily sports companion that answers one question: what's worth paying attention to today?",
+        "url":         SPORTS_TODAY_URL,
+        "thumbnail":   "assets/sports_today.png",
+        "icon":        "📊",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
+    },
     {
         "title":       "World Cup Family HQ",
         "description": "Our family's World Cup central hub. Pools, passports, match tracking, leaderboards, and more.",
@@ -47,21 +66,12 @@ PROJECTS = [
     },
     {
         "title":       "A New Dynasty FFL Museum",
-        "description": "A second league, a new chapter. Track history, rivalries, and records from a fresh dynasty in the making.",
+        "description": "A second league, a new chapter. Track history, rivalries, and records.",
         "url":         DYNASTY_APP_URL,
         "thumbnail":   "assets/FFL_AND.png",
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
-    },
-    {
-        "title":       "Sports Today",
-        "description": "A daily sports companion that answers one question: what's worth paying attention to today? Curated MLB and WNBA opportunities with the evidence behind every call.",
-        "url":         SPORTS_TODAY_URL,
-        "thumbnail":   "assets/sports_today.png",
-        "icon":        "📊",
-        "obj_pos":     "center center",
-        "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
     },
 ]
 

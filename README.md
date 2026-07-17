@@ -15,13 +15,16 @@ streamlit run streamlit_app.py
 
 ## Current Projects
 
+Cards render in this order (2-column grid, left to right):
+
 | Card | URL Variable | Live URL |
 |---|---|---|
+| My Concert Atlas | `CONCERT_ATLAS_URL` | _not set — button disabled_ |
+| Sports Today | `SPORTS_TODAY_URL` | _not set — button disabled_ |
 | World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
 | Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaffl.streamlit.app |
 | {insert witty name here} FFL Museum | `FANTASY_APP_URL` | insertwittynamehere.streamlit.app |
 | A New Dynasty FFL Museum | `DYNASTY_APP_URL` | anewdynasty.streamlit.app |
-| Sports Today | `SPORTS_TODAY_URL` | _not set — button disabled_ |
 
 Coming soon placeholders: **Fantasy League 3**, **Seattle Concert Finder**
 
