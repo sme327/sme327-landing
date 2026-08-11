@@ -23,7 +23,8 @@ the emotional anchor of the page. Visual reference: `example.png` in the repo ro
 handles secondary links (GitHub, LinkedIn, email). Do not add a nav bar back.
 
 1. **Hero** — full-width Seattle image (550px tall), title + tagline in upper-left
-2. **Featured Projects** — 2-column card grid, floats 115px over the hero bottom
+2. **Featured Projects** — auto-fitting grid of portrait cards, floats 115px over
+   the hero bottom
 3. **More Projects Coming Soon** — auto-sizing row of dashed placeholder cards
 4. **Footer** — centered, minimal icon links
 
@@ -35,14 +36,22 @@ handles secondary links (GitHub, LinkedIn, email). Do not add a nav bar back.
   and Rainier are visible in the middle and bottom of the image.
 - **Cards float over the hero** via `margin-top: -115px` on `.proj-section`. Do
   not remove this — it's what gives the page its layered, cinematic feel.
-- **Cards are large horizontal panels** — thumbnail fills the left 48%, text
-  fills the right 52%. Fixed height of 260px on desktop.
+- **Cards are portrait panels — artwork on top, text below.** The thumbnail is a
+  full-width `4/3` block (~70–75% of the card) with the content area beneath it.
+  Do not go back to the side-by-side landscape layout.
+- **The artwork is the primary focus.** Content area stays compact: one title
+  line (emoji + name), a one-sentence description, and the launch link. No
+  paragraph-length copy, no large empty padding under the text.
+- **Launch is a plain text link, not a button** — accent blue `#3b82f6`, 13.5px,
+  no background or outline. It should read as secondary to the image.
+- **Grid is `repeat(auto-fit,minmax(300px,1fr))`** — never hardcode a column
+  count. Cards wrap on available width (≈4 desktop, 2 tablet, 1 mobile).
 - **Coming soon cards** use dashed borders and muted styling — they should feel
   like honest placeholders, not broken features.
 - **Hover effects** on project cards: subtle lift (`translateY(-3px)`) +
-  brightened border + box shadow.
-- **Button text is "Launch App →"** — do not change back to "Open App".
-- **Disabled buttons** (URL set to `"PASTE_..._HERE"`) render grey automatically.
+  brightened border + box shadow + 3% zoom on the thumbnail.
+- **Link text is "Launch App →"** — do not change back to "Open App".
+- **Disabled links** (URL set to `"PASTE_..._HERE"`) render grey automatically.
 
 ---
 
@@ -75,12 +84,12 @@ Listed in render order:
 
 | Title | Notes |
 |---|---|
-| My Concert Atlas | Personal concert history — every show attended, by band/venue/year/state. Source data: `~/Documents/Projects/concert history`. Distinct from the Seattle Concert Finder placeholder below. Thumbnail + URL pending. |
 | Sports Today | Daily sports companion (MLB/WNBA opportunities). URL still pending. |
-| World Cup Family HQ | 2026 FIFA World Cup family tracker |
 | Espinosa FFL Clubhouse | Family fantasy football hub |
 | {insert witty name here} FFL Museum | **This is the real league name** — 25-year history. Not a placeholder. |
 | A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016 |
+| My Concert Atlas | Personal concert history — every show attended, by band/venue/year/state. Source data: `~/Documents/Projects/concert history`. Distinct from the Seattle Concert Finder placeholder below. |
+| World Cup Family HQ | 2026 FIFA World Cup family tracker |
 
 Coming soon: **Fantasy League 3**, **Seattle Concert Finder**
 
@@ -91,12 +100,12 @@ Coming soon: **Fantasy League 3**, **Seattle Concert Finder**
 1. Add URL constant at the top of `streamlit_app.py`
 2. Add dict to `PROJECTS` list (see README for field reference)
 3. Drop thumbnail in `assets/` — wide crop, keep under ~500KB
-4. Set `obj_pos` to position the crop (e.g. `"center top"` to show the top
-   of the image rather than the center)
-5. If URL isn't ready, set it to `"PASTE_..._HERE"` — button auto-disables
+4. Set `obj_pos` to position the crop — the thumbnail is cropped to `4/3`, so
+   keep the focal point in frame (e.g. `"center top"`, `"left center"`)
+5. If URL isn't ready, set it to `"PASTE_..._HERE"` — link auto-disables
 
-The grid is 2 columns on desktop. Cards flow into additional rows naturally —
-no layout changes needed when adding a 5th or 6th card.
+The grid auto-fits, so cards flow into additional rows on their own — no layout
+changes are needed when adding a 7th or 8th card.
 
 ---
 

@@ -16,21 +16,12 @@ FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
 SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
-CONCERT_ATLAS_URL  = "PASTE_CONCERT_ATLAS_URL_HERE"
+CONCERT_ATLAS_URL  = "https://show-history-archive.sme327.chatgpt.site"
 
 PROJECTS = [
     {
-        "title":       "My Concert Atlas",
-        "description": "A visual journey through where the music has taken me.",
-        "url":         CONCERT_ATLAS_URL,
-        "thumbnail":   "assets/concert_atlas.png",
-        "icon":        "🎵",
-        "obj_pos":     "center center",
-        "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",
-    },
-    {
         "title":       "Sports Today",
-        "description": "A daily sports companion that answers one question: what's worth paying attention to today?",
+        "description": "A daily read on what's worth watching in sports.",
         "url":         SPORTS_TODAY_URL,
         "thumbnail":   "assets/sports_today.png",
         "icon":        "📊",
@@ -38,17 +29,8 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
     },
     {
-        "title":       "World Cup Family HQ",
-        "description": "Our family's World Cup central hub. Pools, passports, match tracking, leaderboards, and more.",
-        "url":         WORLD_CUP_APP_URL,
-        "thumbnail":   "assets/worldcup_hq_image.png",
-        "icon":        "⚽",
-        "obj_pos":     "center center",
-        "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
-    },
-    {
         "title":       "Espinosa FFL Clubhouse",
-        "description": "The Espinosa family fantasy football hub. Champions hall, rivalry room, season archive, and more.",
+        "description": "The Espinosa family fantasy football hub.",
         "url":         CLUBHOUSE_APP_URL,
         "thumbnail":   "assets/espinosa_ffl2.png",
         "icon":        "🏠",
@@ -57,21 +39,39 @@ PROJECTS = [
     },
     {
         "title":       "{insert witty name here} FFL Museum",
-        "description": "Explore 25 seasons of league history, analytics, records, and memories.",
+        "description": "25 seasons of league history, records, and memories.",
         "url":         FANTASY_APP_URL,
-        "thumbnail":   "assets/25_FFL.png",
+        "thumbnail":   "assets/25_FFL_2.png",
         "icon":        "🏈",
-        "obj_pos":     "center center",
+        "obj_pos":     "left center",
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
     },
     {
         "title":       "A New Dynasty FFL Museum",
-        "description": "A second league, a new chapter. Track history, rivalries, and records.",
+        "description": "Keeper league history, rivalries, and records.",
         "url":         DYNASTY_APP_URL,
         "thumbnail":   "assets/FFL_AND.png",
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
+    },
+    {
+        "title":       "My Concert Atlas",
+        "description": "Every show I've been to, mapped by band, venue, and year.",
+        "url":         CONCERT_ATLAS_URL,
+        "thumbnail":   "assets/concert_atlas.png",
+        "icon":        "🎵",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",
+    },
+    {
+        "title":       "World Cup Family HQ",
+        "description": "Our family's hub for the 2026 World Cup.",
+        "url":         WORLD_CUP_APP_URL,
+        "thumbnail":   "assets/worldcup_hq_image.png",
+        "icon":        "⚽",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
     },
 ]
 
@@ -113,19 +113,18 @@ def project_card_html(p: dict) -> str:
             f'{p["icon"]}</div>'
         )
 
-    disabled   = p["url"].startswith("PASTE")
-    btn_href   = "#" if disabled else p["url"]
-    btn_target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
-    btn_bg     = "background:#4a6fa5;cursor:not-allowed;" if disabled else "background:#2d7ef8;"
+    disabled    = p["url"].startswith("PASTE")
+    link_href   = "#" if disabled else p["url"]
+    link_target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
+    link_cls    = "proj-link disabled" if disabled else "proj-link"
 
     return f"""
 <div class="proj-card">
   <div class="proj-thumb">{thumb}</div>
   <div class="proj-body">
-    <div class="proj-icon">{p["icon"]}</div>
-    <div class="proj-title">{p["title"]}</div>
+    <div class="proj-title"><span class="proj-icon">{p["icon"]}</span>{p["title"]}</div>
     <div class="proj-desc">{p["description"]}</div>
-    <a href="{btn_href}" {btn_target} class="proj-btn" style="{btn_bg}">Launch App →</a>
+    <a href="{link_href}" {link_target} class="{link_cls}">Launch App →</a>
   </div>
 </div>"""
 
@@ -220,12 +219,16 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 /* ══════════════════════════════════════════════════════
    PROJECT CARDS
 ══════════════════════════════════════════════════════ */
-.proj-grid{{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:0;}}
+.proj-grid{{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:22px;padding-bottom:0;
+}}
 .proj-card{{
   background:rgba(12,20,38,0.97);
   border:1px solid rgba(59,130,246,0.22);
   border-radius:16px;overflow:hidden;
-  display:flex;height:260px;
+  display:flex;flex-direction:column;
   transition:border-color .3s,transform .25s,box-shadow .3s;
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }}
@@ -234,22 +237,30 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   transform:translateY(-3px);
   box-shadow:0 24px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(59,130,246,0.15);
 }}
-.proj-thumb{{flex:0 0 48%;position:relative;overflow:hidden;}}
+/* Artwork sits on top and dominates the card (~70-75% of its height) */
+.proj-thumb{{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;}}
+.proj-thumb img{{transition:transform .45s ease;}}
+.proj-card:hover .proj-thumb img{{transform:scale(1.03);}}
 .proj-body{{
-  flex:1;padding:26px 26px 22px;
+  flex:1;padding:16px 18px 18px;
   display:flex;flex-direction:column;
 }}
-.proj-icon{{font-size:20px;margin-bottom:10px;}}
-.proj-title{{font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.25;}}
-.proj-desc{{font-size:13.5px;color:#94a3b8;line-height:1.6;flex-grow:1;margin-bottom:18px;}}
-.proj-btn{{
-  display:inline-flex;align-items:center;gap:8px;
-  color:#fff!important;text-decoration:none!important;
-  font-size:14px;font-weight:700;padding:10px 22px;
-  border-radius:8px;width:fit-content;letter-spacing:0.2px;
-  transition:filter .2s,transform .15s;
+.proj-icon{{font-size:15px;flex-shrink:0;}}
+.proj-title{{
+  display:flex;align-items:baseline;gap:8px;
+  font-size:16px;font-weight:700;color:#fff;
+  margin-bottom:6px;line-height:1.3;
 }}
-.proj-btn:hover{{filter:brightness(1.2);transform:translateX(3px);}}
+.proj-desc{{font-size:13px;color:#94a3b8;line-height:1.5;margin-bottom:14px;}}
+.proj-link{{
+  margin-top:auto;
+  display:inline-flex;align-items:center;width:fit-content;
+  color:#3b82f6!important;text-decoration:none!important;
+  font-size:13.5px;font-weight:600;letter-spacing:0.2px;
+  transition:color .2s,transform .15s;
+}}
+.proj-link:hover{{color:#60a5fa!important;transform:translateX(3px);}}
+.proj-link.disabled{{color:#64748b!important;cursor:not-allowed;pointer-events:none;}}
 
 /* ══════════════════════════════════════════════════════
    GENERAL SECTION (coming soon, etc.)
@@ -302,14 +313,10 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
    RESPONSIVE
 ══════════════════════════════════════════════════════ */
 @media(max-width:1024px){{
-  .proj-grid{{grid-template-columns:1fr;}}
-  .proj-card{{height:auto;min-height:220px;}}
   .proj-section{{margin-top:-60px;}}
 }}
 @media(max-width:960px){{
   .cs-grid{{grid-template-columns:1fr 1fr;}}
-  .proj-card{{flex-direction:column;}}
-  .proj-thumb{{flex:0 0 200px;}}
   .hero-title{{font-size:60px;}}
   .hero{{height:460px;}}
   .hero-content{{padding-top:60px;}}
