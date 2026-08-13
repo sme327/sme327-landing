@@ -96,7 +96,12 @@ def externalize_images(html: str) -> tuple[str, int]:
         raw = base64.b64decode(match["data"])
         digest = hashlib.sha1(raw).hexdigest()
         if digest not in written:
-            name = known.get(digest, f"{digest[:12]}.{match['ext']}")
+            source = known.get(digest)
+            stem = Path(source).stem if source else "image"
+            ext = Path(source).suffix.lstrip(".") if source else match["ext"]
+            # Content hash in the filename: changing an image changes its URL,
+            # so assets can be cached forever without ever serving a stale one.
+            name = f"{stem}.{digest[:8]}.{ext}"
             (out_dir / name).write_bytes(raw)
             written[digest] = name
         return f"assets/{written[digest]}"
@@ -151,6 +156,42 @@ html,body{{margin:0;padding:0;background:#080d1a;}}
 """
 
 
+# ── Host configuration ────────────────────────────────────────────────────────
+
+# Cloudflare Pages reads these from the output root.
+#
+# Cache-Control is deliberately absent from the /* block: it matches everything
+# including /assets/*, and two rules setting the same header on one request is
+# ambiguous. HTML revalidates every time (it's 19KB and must reflect edits
+# immediately); hashed assets are immutable, since a changed image gets a new
+# filename rather than a new version of the same one.
+#
+# The page contains no JavaScript at all, so the CSP can deny scripts outright.
+# 'unsafe-inline' for styles is unavoidable — the design is one big inline
+# <style> block plus inline style attributes on the thumbnails.
+HEADERS = """\
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+"""
+
+ROBOTS = """\
+User-agent: *
+Allow: /
+"""
+
+
 # ── Build ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -163,6 +204,8 @@ def main() -> None:
     html = document(body, config)
 
     (DIST / "index.html").write_text(html, encoding="utf-8")
+    (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
+    (DIST / "robots.txt").write_text(ROBOTS, encoding="utf-8")
 
     assets = sorted((DIST / "assets").glob("*"))
     asset_bytes = sum(p.stat().st_size for p in assets)

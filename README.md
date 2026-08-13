@@ -115,7 +115,15 @@ There's one source of truth: edit `streamlit_app.py` and both the Streamlit
 deploy and the static site pick up the change. `build.py` is standard library
 only, so the host's build step needs nothing installed.
 
-`dist/` is gitignored — the host rebuilds it on each push.
+`dist/` is gitignored — the host rebuilds it on each push. Alongside the HTML it
+writes `robots.txt` and a `_headers` file that Cloudflare Pages reads:
+
+- **Caching** — extracted images get a content hash in the filename
+  (`concert_atlas.32750c24.webp`), so they're cached for a year as immutable
+  while the HTML revalidates on every request. Change an image and its URL
+  changes with it; no stale cache, no manual purge.
+- **Security headers** — `nosniff`, a referrer policy, and a CSP. The static
+  page contains no JavaScript, so the CSP denies scripts outright.
 
 ### Images
 
