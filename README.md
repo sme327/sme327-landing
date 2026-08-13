@@ -23,8 +23,30 @@ Cards render in this order (auto-fitting grid, left to right):
 | Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaffl.streamlit.app |
 | {insert witty name here} FFL Museum | `FANTASY_APP_URL` | insertwittynamehere.streamlit.app |
 | A New Dynasty FFL Museum | `DYNASTY_APP_URL` | anewdynasty.streamlit.app |
+| FFL Draft Room | `DRAFT_ROOM_URL` | _not set — link disabled_ |
 | My Concert Atlas | `CONCERT_ATLAS_URL` | show-history-archive.sme327.chatgpt.site |
 | World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
+
+## Also Built
+
+The `SHOWCASE` list holds projects that are real but not publicly hosted. Entries
+use the same fields as `PROJECTS`, except they **omit `url`** and add a `label`,
+which renders as a muted chip where the launch link would be:
+
+```python
+{
+    "title":       "Next",
+    "description": "A project tracker for the AI tools I'm building.",
+    "label":       "Private build",
+    "thumbnail":   "assets/next.png",
+    "icon":        "🗂️",
+    "obj_pos":     "center center",
+    "fallback_gradient": "linear-gradient(160deg, #0b0a1f 0%, #2a1b5e 45%, #0b0a1f 100%)",
+},
+```
+
+If one of these later becomes publicly reachable, move the dict to `PROJECTS`,
+swap `label` for `url`, and optionally set `cta` (e.g. `"View code →"`).
 
 Coming soon placeholders: **Fantasy League 3**, **Seattle Concert Finder**
 
@@ -75,6 +97,48 @@ To add a Coming Soon placeholder instead, append to `COMING_SOON`.
 All images are base64-encoded at runtime — no CDN needed. Missing images fall
 back to CSS gradients automatically. Keep thumbnails under ~500KB to avoid slow
 cold starts on Streamlit Cloud.
+
+---
+
+## Static Build (sme327.com)
+
+The page has no widgets or callbacks, so it can be served as flat files with no
+Python runtime. `build.py` stubs out `streamlit`, imports the app, captures what
+it passed to `st.markdown()`, and writes `dist/`:
+
+```bash
+python build.py        # → dist/index.html + dist/assets/
+open dist/index.html   # verify locally before deploying
+```
+
+There's one source of truth: edit `streamlit_app.py` and both the Streamlit
+deploy and the static site pick up the change. `build.py` is standard library
+only, so the host's build step needs nothing installed.
+
+`dist/` is gitignored — the host rebuilds it on each push.
+
+### Images
+
+The app inlines images as base64, which is fine for Streamlit but wasteful over
+a CDN; `build.py` extracts them back out to real files so the browser can cache
+them separately. Sources are compressed ahead of time:
+
+```bash
+pip install pillow
+python optimize_assets.py   # assets/*.png → assets/*.webp
+```
+
+Cards reference the `.webp` files, so after dropping a new PNG into `assets/`,
+run `optimize_assets.py`. Originals are left in place as masters. Together these
+take the page from ~21MB to ~1.4MB.
+
+### Hosting (Cloudflare Pages)
+
+| Setting | Value |
+|---|---|
+| Build command | `python build.py` |
+| Output directory | `dist` |
+| Framework preset | None |
 
 ---
 

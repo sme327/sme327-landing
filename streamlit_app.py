@@ -15,6 +15,7 @@ WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
+DRAFT_ROOM_URL     = "PASTE_DRAFT_ROOM_URL_HERE"
 SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
 CONCERT_ATLAS_URL  = "https://show-history-archive.sme327.chatgpt.site"
 
@@ -23,7 +24,7 @@ PROJECTS = [
         "title":       "Sports Today",
         "description": "A daily read on what's worth watching in sports.",
         "url":         SPORTS_TODAY_URL,
-        "thumbnail":   "assets/sports_today.png",
+        "thumbnail":   "assets/sports_today.webp",
         "icon":        "📊",
         "obj_pos":     "center top",
         "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
@@ -32,7 +33,7 @@ PROJECTS = [
         "title":       "Espinosa FFL Clubhouse",
         "description": "The Espinosa family fantasy football hub.",
         "url":         CLUBHOUSE_APP_URL,
-        "thumbnail":   "assets/espinosa_ffl2.png",
+        "thumbnail":   "assets/espinosa_ffl2.webp",
         "icon":        "🏠",
         "obj_pos":     "center top",
         "fallback_gradient": "linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 45%, #0a1a0a 100%)",
@@ -41,7 +42,7 @@ PROJECTS = [
         "title":       "{insert witty name here} FFL Museum",
         "description": "25 seasons of league history, records, and memories.",
         "url":         FANTASY_APP_URL,
-        "thumbnail":   "assets/25_FFL_2.png",
+        "thumbnail":   "assets/25_FFL_2.webp",
         "icon":        "🏈",
         "obj_pos":     "left center",
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
@@ -50,16 +51,25 @@ PROJECTS = [
         "title":       "A New Dynasty FFL Museum",
         "description": "Keeper league history, rivalries, and records.",
         "url":         DYNASTY_APP_URL,
-        "thumbnail":   "assets/FFL_AND.png",
+        "thumbnail":   "assets/FFL_AND.webp",
         "icon":        "🏆",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
     },
     {
+        "title":       "FFL Draft Room",
+        "description": "Live draft board, player queue, and keeper tool in one.",
+        "url":         DRAFT_ROOM_URL,
+        "thumbnail":   "assets/draft_room.webp",
+        "icon":        "📋",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #04170c 0%, #0d3d22 45%, #04170c 100%)",
+    },
+    {
         "title":       "My Concert Atlas",
         "description": "Every show I've been to, mapped by band, venue, and year.",
         "url":         CONCERT_ATLAS_URL,
-        "thumbnail":   "assets/concert_atlas.png",
+        "thumbnail":   "assets/concert_atlas.webp",
         "icon":        "🎵",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",
@@ -68,10 +78,24 @@ PROJECTS = [
         "title":       "World Cup Family HQ",
         "description": "Our family's hub for the 2026 World Cup.",
         "url":         WORLD_CUP_APP_URL,
-        "thumbnail":   "assets/worldcup_hq_image.png",
+        "thumbnail":   "assets/worldcup_hq_image.webp",
         "icon":        "⚽",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
+    },
+]
+
+# Built and real, but not publicly hosted. Same card shape as PROJECTS, minus the
+# "url" field — an honest label renders in place of the launch link.
+SHOWCASE = [
+    {
+        "title":       "Next",
+        "description": "A project tracker for the AI tools I'm building — what's shipped, what's next.",
+        "label":       "Private build",
+        "thumbnail":   "assets/next.webp",
+        "icon":        "🗂️",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #0b0a1f 0%, #2a1b5e 45%, #0b0a1f 100%)",
     },
 ]
 
@@ -113,10 +137,15 @@ def project_card_html(p: dict) -> str:
             f'{p["icon"]}</div>'
         )
 
-    disabled    = p["url"].startswith("PASTE")
-    link_href   = "#" if disabled else p["url"]
-    link_target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
-    link_cls    = "proj-link disabled" if disabled else "proj-link"
+    if "url" in p:
+        disabled    = p["url"].startswith("PASTE")
+        link_href   = "#" if disabled else p["url"]
+        link_target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
+        link_cls    = "proj-link disabled" if disabled else "proj-link"
+        cta         = p.get("cta", "Launch App →")
+        footer      = f'<a href="{link_href}" {link_target} class="{link_cls}">{cta}</a>'
+    else:
+        footer      = f'<div class="proj-tag">{p["label"]}</div>'
 
     return f"""
 <div class="proj-card">
@@ -124,7 +153,7 @@ def project_card_html(p: dict) -> str:
   <div class="proj-body">
     <div class="proj-title"><span class="proj-icon">{p["icon"]}</span>{p["title"]}</div>
     <div class="proj-desc">{p["description"]}</div>
-    <a href="{link_href}" {link_target} class="{link_cls}">Launch App →</a>
+    {footer}
   </div>
 </div>"""
 
@@ -143,7 +172,7 @@ def coming_soon_card_html(item: dict) -> str:
 # ── Main Render ───────────────────────────────────────────────────────────────
 
 def render():
-    hero_uri = img_to_data_uri("assets/seattle_hero.png")
+    hero_uri = img_to_data_uri("assets/seattle_hero.webp")
     hero_bg_css = (
         f"background-image:url('{hero_uri}');background-size:cover;background-position:center top;"
         if hero_uri
@@ -261,6 +290,27 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 }}
 .proj-link:hover{{color:#60a5fa!important;transform:translateX(3px);}}
 .proj-link.disabled{{color:#64748b!important;cursor:not-allowed;pointer-events:none;}}
+/* Sits where the launch link would be, for builds that aren't publicly hosted */
+.proj-tag{{
+  margin-top:auto;
+  display:inline-flex;align-items:center;gap:7px;width:fit-content;
+  font-size:11px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;
+  color:#7c8ba1;background:rgba(100,116,139,0.12);
+  border:1px solid rgba(100,116,139,0.28);
+  padding:5px 11px;border-radius:999px;
+}}
+.proj-tag::before{{
+  content:"";width:5px;height:5px;border-radius:50%;
+  background:#64748b;flex-shrink:0;
+}}
+
+/* Showcase grid — auto-fill (not auto-fit) so a lone card keeps card width
+   instead of stretching across the full row */
+.sc-grid{{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:22px;padding-bottom:0;
+}}
 
 /* ══════════════════════════════════════════════════════
    GENERAL SECTION (coming soon, etc.)
@@ -355,6 +405,20 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   </div>
   <div class="proj-grid">
     {cards_html}
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    # ── Also Built (real projects, not publicly hosted) ───────────────────────
+    sc_html = "\n".join(project_card_html(s) for s in SHOWCASE)
+    st.markdown(f"""
+<div class="section" id="also-built">
+  <div class="section-hdr">
+    <div class="sec-bar"></div>
+    🛠️ Also Built
+  </div>
+  <div class="sc-grid">
+    {sc_html}
   </div>
 </div>
 """, unsafe_allow_html=True)
