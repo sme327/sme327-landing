@@ -17,7 +17,7 @@ DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
 DRAFT_ROOM_URL     = "PASTE_DRAFT_ROOM_URL_HERE"
 SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
-CONCERT_ATLAS_URL  = "https://show-history-archive.sme327.chatgpt.site"
+CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
 
 PROJECTS = [
     {
