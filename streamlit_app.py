@@ -15,7 +15,7 @@ WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
-DRAFT_ROOM_URL     = "PASTE_DRAFT_ROOM_URL_HERE"
+DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
 SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
 
