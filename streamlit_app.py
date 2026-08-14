@@ -12,7 +12,7 @@ st.set_page_config(
 # ── App Configuration ─────────────────────────────────────────────────────────
 
 WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
-FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
+FANTASY_APP_URL    = "https://iwnh.sme327.com"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
