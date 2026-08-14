@@ -14,7 +14,7 @@ st.set_page_config(
 WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://insertwittynamehere.streamlit.app"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
-CLUBHOUSE_APP_URL  = "https://espinosaffl.streamlit.app"
+CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
 SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
@@ -57,15 +57,6 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
     },
     {
-        "title":       "FFL Draft Room",
-        "description": "Live draft board, player queue, and keeper tool in one.",
-        "url":         DRAFT_ROOM_URL,
-        "thumbnail":   "assets/draft_room.webp",
-        "icon":        "📋",
-        "obj_pos":     "center center",
-        "fallback_gradient": "linear-gradient(160deg, #04170c 0%, #0d3d22 45%, #04170c 100%)",
-    },
-    {
         "title":       "My Concert Atlas",
         "description": "Every show I've been to, mapped by band, venue, and year.",
         "url":         CONCERT_ATLAS_URL,
@@ -85,17 +76,24 @@ PROJECTS = [
     },
 ]
 
-# Built and real, but not publicly hosted. Same card shape as PROJECTS, minus the
-# "url" field — an honest label renders in place of the launch link.
-SHOWCASE = [
+# Working tools rather than showcase projects. Rendered as compact, icon-led
+# cards — no thumbnail — so the section stays visually subordinate to the
+# featured projects above it. Entries with a "url" get a launch link; entries
+# without one get an honest label instead.
+TOOLS = [
+    {
+        "title":       "FFL Draft Room",
+        "description": "Live draft board, player queue, and keeper tool in one.",
+        "url":         DRAFT_ROOM_URL,
+        "icon":        "📋",
+        "accent":      "#22c55e",
+    },
     {
         "title":       "Next",
         "description": "A project tracker for the AI tools I'm building — what's shipped, what's next.",
         "label":       "Private build",
-        "thumbnail":   "assets/next.webp",
         "icon":        "🗂️",
-        "obj_pos":     "center center",
-        "fallback_gradient": "linear-gradient(160deg, #0b0a1f 0%, #2a1b5e 45%, #0b0a1f 100%)",
+        "accent":      "#a78bfa",
     },
 ]
 
@@ -153,6 +151,28 @@ def project_card_html(p: dict) -> str:
   <div class="proj-body">
     <div class="proj-title"><span class="proj-icon">{p["icon"]}</span>{p["title"]}</div>
     <div class="proj-desc">{p["description"]}</div>
+    {footer}
+  </div>
+</div>"""
+
+
+def tool_card_html(t: dict) -> str:
+    """Compact card for the tools section — icon instead of a thumbnail."""
+    if "url" in t:
+        disabled = t["url"].startswith("PASTE")
+        href = "#" if disabled else t["url"]
+        target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
+        cls = "proj-link disabled" if disabled else "proj-link"
+        footer = f'<a href="{href}" {target} class="{cls}">{t.get("cta", "Launch App →")}</a>'
+    else:
+        footer = f'<div class="proj-tag">{t["label"]}</div>'
+
+    return f"""
+<div class="tool-card">
+  <div class="tool-icon" style="background:{t['accent']}1a;border-color:{t['accent']}55;">{t['icon']}</div>
+  <div class="tool-body">
+    <div class="tool-title">{t['title']}</div>
+    <div class="tool-desc">{t['description']}</div>
     {footer}
   </div>
 </div>"""
@@ -304,13 +324,38 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   background:#64748b;flex-shrink:0;
 }}
 
-/* Showcase grid — auto-fill (not auto-fit) so a lone card keeps card width
-   instead of stretching across the full row */
+/* Tools grid — compact, icon-led cards. Deliberately shorter and narrower than
+   the project cards so the section reads as secondary. auto-fill (not auto-fit)
+   keeps a lone card at card width instead of stretching the row. */
 .sc-grid{{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:22px;padding-bottom:0;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:14px;padding-bottom:0;
 }}
+.tool-card{{
+  background:rgba(12,20,38,0.97);
+  border:1px solid rgba(59,130,246,0.22);
+  border-radius:12px;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 18px;
+  transition:border-color .3s,transform .25s,box-shadow .3s;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}}
+.tool-card:hover{{
+  border-color:rgba(59,130,246,.6);
+  transform:translateY(-2px);
+  box-shadow:0 14px 36px rgba(0,0,0,0.45);
+}}
+.tool-icon{{
+  flex:0 0 auto;width:42px;height:42px;border-radius:10px;
+  border:1px solid;display:flex;align-items:center;justify-content:center;
+  font-size:20px;line-height:1;
+}}
+.tool-body{{flex:1;min-width:0;}}
+.tool-title{{font-size:15px;font-weight:700;color:#fff;line-height:1.3;}}
+.tool-desc{{font-size:12.5px;color:#94a3b8;line-height:1.5;margin:3px 0 8px;}}
+.tool-card .proj-link{{margin-top:0;font-size:12.5px;}}
+.tool-card .proj-tag{{margin-top:0;}}
 
 /* ══════════════════════════════════════════════════════
    GENERAL SECTION (coming soon, etc.)
@@ -409,13 +454,13 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Also Built (real projects, not publicly hosted) ───────────────────────
-    sc_html = "\n".join(project_card_html(s) for s in SHOWCASE)
+    # ── Productivity & Tools ─────────────────────────────────────────────────
+    sc_html = "\n".join(tool_card_html(t) for t in TOOLS)
     st.markdown(f"""
-<div class="section" id="also-built">
+<div class="section" id="tools">
   <div class="section-hdr">
     <div class="sec-bar"></div>
-    🛠️ Also Built
+    🛠️ Productivity &amp; Tools
   </div>
   <div class="sc-grid">
     {sc_html}
