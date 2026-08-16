@@ -16,7 +16,7 @@ FANTASY_APP_URL    = "https://iwnh.sme327.com"
 DYNASTY_APP_URL    = "https://anewdynasty.streamlit.app"
 CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
-SPORTS_TODAY_URL   = "PASTE_SPORTS_TODAY_URL_HERE"
+SPORTS_TODAY_URL   = "https://sports.sme327.com"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
 
 PROJECTS = [
@@ -93,6 +93,7 @@ TOOLS = [
         "description": "A project tracker for the AI tools I'm building — what's shipped, what's next.",
         "label":       "Private build",
         "icon":        "🗂️",
+        "icon_asset":  "assets/next_icon.png",
         "accent":      "#a78bfa",
     },
 ]
@@ -158,6 +159,13 @@ def project_card_html(p: dict) -> str:
 
 def tool_card_html(t: dict) -> str:
     """Compact card for the tools section — icon instead of a thumbnail."""
+    icon_uri = img_to_data_uri(t["icon_asset"]) if t.get("icon_asset") else None
+    icon = (
+        f'<img src="{icon_uri}" alt="" class="tool-icon-img">'
+        if icon_uri
+        else t["icon"]
+    )
+
     if "url" in t:
         disabled = t["url"].startswith("PASTE")
         href = "#" if disabled else t["url"]
@@ -169,7 +177,7 @@ def tool_card_html(t: dict) -> str:
 
     return f"""
 <div class="tool-card">
-  <div class="tool-icon" style="background:{t['accent']}1a;border-color:{t['accent']}55;">{t['icon']}</div>
+  <div class="tool-icon" style="background:{t['accent']}1a;border-color:{t['accent']}55;">{icon}</div>
   <div class="tool-body">
     <div class="tool-title">{t['title']}</div>
     <div class="tool-desc">{t['description']}</div>
@@ -351,6 +359,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   border:1px solid;display:flex;align-items:center;justify-content:center;
   font-size:20px;line-height:1;
 }}
+.tool-icon-img{{width:100%;height:100%;object-fit:cover;border-radius:9px;display:block;}}
 .tool-body{{flex:1;min-width:0;}}
 .tool-title{{font-size:15px;font-weight:700;color:#fff;line-height:1.3;}}
 .tool-desc{{font-size:12.5px;color:#94a3b8;line-height:1.5;margin:3px 0 8px;}}
