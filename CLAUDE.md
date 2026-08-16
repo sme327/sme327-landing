@@ -27,7 +27,7 @@ handles secondary links (GitHub, LinkedIn, email). Do not add a nav bar back.
    the hero bottom
 3. **Also Built** — same card shape, for real projects that aren't publicly
    hosted. No launch link; a muted "Private build" chip instead
-4. **More Projects Coming Soon** — auto-sizing row of dashed placeholder cards
+4. **Coming Soon** — auto-sizing row of dashed placeholder cards
 5. **Footer** — centered, minimal icon links
 
 ---
@@ -52,7 +52,7 @@ handles secondary links (GitHub, LinkedIn, email). Do not add a nav bar back.
   like honest placeholders, not broken features.
 - **Hover effects** on project cards: subtle lift (`translateY(-3px)`) +
   brightened border + box shadow + 3% zoom on the thumbnail.
-- **Link text defaults to "Launch App →"** — do not change back to "Open App". A
+- **Link text defaults to "Visit Site →"**. A
   card may override it with an optional `cta` field (e.g. `"View code →"`) when
   the destination isn't a launchable app.
 - **Disabled links** (URL set to `"PASTE_..._HERE"`) render grey automatically.
@@ -107,7 +107,7 @@ Listed in render order:
 
 Also Built (`SHOWCASE`, no public link): **Next** — project tracker for AI builds
 
-Coming soon: **Fantasy League 3**, **Seattle Concert Finder**
+Coming soon: **Sleeper Dynasty FFL League**, **NFL Playoff Pool**, **Women's World Cup**
 
 ---
 

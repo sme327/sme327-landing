@@ -98,13 +98,10 @@ TOOLS = [
     },
 ]
 
-_TROPHY_SVG = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v1c0 .34.03.67.08 1H5.08C5.03 8.67 5 8.34 5 8zm7 6c-1.65 0-3-1.35-3-3V5h6v6c0 1.65-1.35 3-3 3zm7-6c0 .34-.03.67-.08 1h-2.08c.05-.33.08-.66.08-1V7h2v1z"/></svg>'
-_MUSIC_SVG  = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>'
-_GAME_SVG   = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 10 18.5 10s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>'
-
 COMING_SOON = [
-    {"svg": _TROPHY_SVG, "title": "Fantasy League 3",       "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
-    {"svg": _MUSIC_SVG,  "title": "Seattle Concert Finder", "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
+    {"svg": "🏈", "title": "Sleeper Dynasty FFL League", "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
+    {"svg": "🏈", "title": "NFL Playoff Pool",           "subtitle": "Coming soon", "color": "#f97316", "bg": "rgba(249,115,22,0.15)"},
+    {"svg": "⚽️", "title": "Women's World Cup",          "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -141,7 +138,7 @@ def project_card_html(p: dict) -> str:
         link_href   = "#" if disabled else p["url"]
         link_target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
         link_cls    = "proj-link disabled" if disabled else "proj-link"
-        cta         = p.get("cta", "Launch App →")
+        cta         = p.get("cta", "Visit Site →")
         footer      = f'<a href="{link_href}" {link_target} class="{link_cls}">{cta}</a>'
     else:
         footer      = f'<div class="proj-tag">{p["label"]}</div>'
@@ -171,7 +168,7 @@ def tool_card_html(t: dict) -> str:
         href = "#" if disabled else t["url"]
         target = "" if disabled else 'target="_blank" rel="noopener noreferrer"'
         cls = "proj-link disabled" if disabled else "proj-link"
-        footer = f'<a href="{href}" {target} class="{cls}">{t.get("cta", "Launch App →")}</a>'
+        footer = f'<a href="{href}" {target} class="{cls}">{t.get("cta", "Visit Site →")}</a>'
     else:
         footer = f'<div class="proj-tag">{t["label"]}</div>'
 
@@ -483,7 +480,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 <div class="section" id="coming-soon">
   <div class="section-hdr">
     <div class="sec-bar"></div>
-    🚀 More Projects Coming Soon
+    🚀 Coming Soon
   </div>
   <div class="cs-grid">
     {cs_html}

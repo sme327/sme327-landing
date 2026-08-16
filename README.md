@@ -48,7 +48,8 @@ which renders as a muted chip where the launch link would be:
 If one of these later becomes publicly reachable, move the dict to `PROJECTS`,
 swap `label` for `url`, and optionally set `cta` (e.g. `"View code →"`).
 
-Coming soon placeholders: **Fantasy League 3**, **Seattle Concert Finder**
+Coming soon placeholders: **Sleeper Dynasty FFL League**, **NFL Playoff Pool**,
+and **Women's World Cup**.
 
 ---
 
