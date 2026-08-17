@@ -57,10 +57,10 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
     },
     {
-        "title":       "My Concert Atlas",
+        "title":       "My Concert Archive",
         "description": "Every show I've been to, mapped by band, venue, and year.",
         "url":         CONCERT_ATLAS_URL,
-        "thumbnail":   "assets/concert_atlas.webp",
+        "thumbnail":   "assets/concert_archive.webp",
         "icon":        "🎵",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",

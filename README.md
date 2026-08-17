@@ -24,7 +24,7 @@ Cards render in this order (auto-fitting grid, left to right):
 | {insert witty name here} FFL Museum | `FANTASY_APP_URL` | insertwittynamehere.streamlit.app |
 | A New Dynasty FFL Museum | `DYNASTY_APP_URL` | anewdynasty.streamlit.app |
 | FFL Draft Room | `DRAFT_ROOM_URL` | _not set — link disabled_ |
-| My Concert Atlas | `CONCERT_ATLAS_URL` | show-history-archive.sme327.chatgpt.site |
+| My Concert Archive | `CONCERT_ATLAS_URL` | concerts.sme327.com |
 | World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
 
 ## Also Built
@@ -92,7 +92,7 @@ To add a Coming Soon placeholder instead, append to `COMING_SOON`.
 | `assets/espinosa_ffl2.png` | Espinosa FFL Clubhouse thumbnail |
 | `assets/25_FFL_2.png` | {insert witty name here} FFL Museum thumbnail |
 | `assets/FFL_AND.png` | A New Dynasty FFL Museum thumbnail |
-| `assets/concert_atlas.png` | My Concert Atlas thumbnail |
+| `assets/concert_archive.png` | My Concert Archive thumbnail |
 | `assets/worldcup_hq_image.png` | World Cup card thumbnail |
 
 All images are base64-encoded at runtime — no CDN needed. Missing images fall
