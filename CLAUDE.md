@@ -98,11 +98,11 @@ Listed in render order:
 | Title | Notes |
 |---|---|
 | Sports Today | Daily sports companion (MLB/WNBA opportunities). URL still pending. |
+| My Concert Archive | Personal concert history — every show attended, by band/venue/year/state. |
 | Espinosa FFL Clubhouse | Family fantasy football hub |
 | {insert witty name here} FFL Museum | **This is the real league name** — 25-year history. Not a placeholder. |
 | A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016 |
 | FFL Draft Room | Draft board + queue + keeper tool, all in one. Deployed; URL still pending. Placed here to keep the football cards grouped. |
-| My Concert Archive | Personal concert history — every show attended, by band/venue/year/state. |
 | World Cup Family HQ | 2026 FIFA World Cup family tracker |
 
 Also Built (`SHOWCASE`, no public link): **Next** — project tracker for AI builds
