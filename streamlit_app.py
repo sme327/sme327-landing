@@ -18,6 +18,7 @@ CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
 SPORTS_TODAY_URL   = "https://sports.sme327.com"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
+SLEEPER_DYNASTY_URL = "https://dynasty.sme327.com"
 
 PROJECTS = [
     {
@@ -74,6 +75,16 @@ PROJECTS = [
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
     },
+    {
+        # Awaiting artwork — no "thumbnail" key, so the card renders the
+        # gradient placeholder. Violet carries over from the coming-soon
+        # tile this replaced. Drop in assets/sleeper_dynasty.webp to finish it.
+        "title":       "Sleeper Dynasty FFL",
+        "description": "Dynasty league history, records, and rivalries.",
+        "url":         SLEEPER_DYNASTY_URL,
+        "icon":        "👑",
+        "fallback_gradient": "linear-gradient(160deg, #150a25 0%, #4c1d95 45%, #150a25 100%)",
+    },
 ]
 
 # Working tools rather than showcase projects. Rendered as compact, icon-led
@@ -99,7 +110,6 @@ TOOLS = [
 ]
 
 COMING_SOON = [
-    {"svg": "🏈", "title": "Sleeper Dynasty FFL League", "subtitle": "Coming soon", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)"},
     {"svg": "🏈", "title": "NFL Playoff Pool",           "subtitle": "Coming soon", "color": "#f97316", "bg": "rgba(249,115,22,0.15)"},
     {"svg": "⚽️", "title": "Women's World Cup",          "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
 ]
@@ -119,7 +129,10 @@ def img_to_data_uri(path: str) -> str | None:
 
 
 def project_card_html(p: dict) -> str:
-    uri = img_to_data_uri(p["thumbnail"])
+    # A card with no "thumbnail" is awaiting artwork; it falls back to the
+    # gradient panel below, same as one whose file is missing.
+    thumbnail = p.get("thumbnail")
+    uri = img_to_data_uri(thumbnail) if thumbnail else None
     obj_pos = p.get("obj_pos", "center center")
     if uri:
         thumb = (

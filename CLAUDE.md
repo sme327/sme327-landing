@@ -101,13 +101,14 @@ Listed in render order:
 | My Concert Archive | Personal concert history — every show attended, by band/venue/year/state. |
 | Espinosa FFL Clubhouse | Family fantasy football hub |
 | {insert witty name here} FFL Museum | **This is the real league name** — 25-year history. Not a placeholder. |
-| A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016 |
-| FFL Draft Room | Draft board + queue + keeper tool, all in one. Deployed; URL still pending. Placed here to keep the football cards grouped. |
+| A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016. Still on Streamlit; port pending. Note `dynasty.sme327.com` is taken by Sleeper Dynasty FFL, so this needs a different subdomain. |
 | World Cup Family HQ | 2026 FIFA World Cup family tracker |
+| Sleeper Dynasty FFL | Graduated from Coming Soon. Awaiting artwork — the dict has no `thumbnail` key, so it renders the violet gradient placeholder. Drop in `assets/sleeper_dynasty.webp` and add the key to finish it. |
 
-Also Built (`SHOWCASE`, no public link): **Next** — project tracker for AI builds
+Productivity & Tools (`TOOLS`): **FFL Draft Room** — draft board + queue + keeper tool, live;
+**Next** — project tracker for AI builds, no public link (renders a "Private build" chip)
 
-Coming soon: **Sleeper Dynasty FFL League**, **NFL Playoff Pool**, **Women's World Cup**
+Coming soon: **NFL Playoff Pool**, **Women's World Cup**
 
 ---
 
