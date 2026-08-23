@@ -67,6 +67,15 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
     },
     {
+        "title":       "Sleeper Dynasty FFL",
+        "description": "Dynasty league history, records, and rivalries.",
+        "url":         SLEEPER_DYNASTY_URL,
+        "thumbnail":   "assets/sleeper_dynasty.webp",
+        "icon":        "👑",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #150a25 0%, #4c1d95 45%, #150a25 100%)",
+    },
+    {
         "title":       "World Cup Family HQ",
         "description": "Our family's hub for the 2026 World Cup.",
         "url":         WORLD_CUP_APP_URL,
@@ -74,16 +83,6 @@ PROJECTS = [
         "icon":        "⚽",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #0a2010 0%, #1a4a20 45%, #0d3515 100%)",
-    },
-    {
-        # Awaiting artwork — no "thumbnail" key, so the card renders the
-        # gradient placeholder. Violet carries over from the coming-soon
-        # tile this replaced. Drop in assets/sleeper_dynasty.webp to finish it.
-        "title":       "Sleeper Dynasty FFL",
-        "description": "Dynasty league history, records, and rivalries.",
-        "url":         SLEEPER_DYNASTY_URL,
-        "icon":        "👑",
-        "fallback_gradient": "linear-gradient(160deg, #150a25 0%, #4c1d95 45%, #150a25 100%)",
     },
 ]
 
