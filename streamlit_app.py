@@ -54,7 +54,7 @@ PROJECTS = [
         "url":         FANTASY_APP_URL,
         "thumbnail":   "assets/25_FFL_2.webp",
         "icon":        "🏈",
-        "obj_pos":     "left center",
+        "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
     },
     {
