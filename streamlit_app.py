@@ -421,6 +421,8 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 .footer-icons{{display:flex;align-items:center;gap:20px;}}
 .footer-icon{{color:#64748b;text-decoration:none;transition:color .2s;display:flex;align-items:center;}}
 .footer-icon:hover{{color:#fff;}}
+.footer-status{{font-size:18px;line-height:1;opacity:.55;transition:color .2s,opacity .2s;}}
+.footer-status:hover{{opacity:1;}}
 
 /* ══════════════════════════════════════════════════════
    RESPONSIVE
@@ -544,6 +546,8 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
         <polyline points="22,6 12,13 2,6"/>
       </svg>
     </a>
+    <a href="https://status.sme327.com" target="_blank" rel="noopener noreferrer"
+       class="footer-icon footer-status" title="Site status" aria-label="Site status">⚙︎</a>
   </div>
 </div>
 """, unsafe_allow_html=True)
