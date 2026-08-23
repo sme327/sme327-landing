@@ -4,7 +4,7 @@ from pathlib import Path
 
 st.set_page_config(
     page_title="sme327",
-    page_icon="assets/favicon.svg",
+    page_icon="assets/favicon-64.png",
     layout="wide",
     initial_sidebar_state="collapsed",
 )

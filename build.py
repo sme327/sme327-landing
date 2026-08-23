@@ -26,7 +26,6 @@ import shutil
 import sys
 import types
 from pathlib import Path
-from urllib.parse import quote
 
 ROOT = Path(__file__).parent
 DIST = ROOT / "dist"
@@ -124,16 +123,6 @@ def social_image(body: str) -> str:
 
 def document(body: str, config: dict) -> str:
     title = config.get("page_title", "sme327")
-    icon = config.get("page_icon", "🚀")
-    icon_path = ROOT / icon if isinstance(icon, str) else None
-    if icon_path and icon_path.suffix.lower() == ".svg" and icon_path.is_file():
-        favicon = f"data:image/svg+xml,{quote(icon_path.read_text(encoding='utf-8'))}"
-    else:
-        favicon = (
-            "data:image/svg+xml,"
-            f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
-            f"<text y='.9em' font-size='90'>{icon}</text></svg>"
-        ).replace("#", "%23")
 
     return f"""<!doctype html>
 <html lang="en">
@@ -142,7 +131,10 @@ def document(body: str, config: dict) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{DESCRIPTION}">
-<link rel="icon" href="{favicon}">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=4">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png?v=4">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
+<link rel="mask-icon" href="/safari-pinned-tab.svg?v=4" color="#f97316">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{DESCRIPTION}">
@@ -211,6 +203,13 @@ def main() -> None:
     (DIST / "index.html").write_text(html, encoding="utf-8")
     (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
     (DIST / "robots.txt").write_text(ROBOTS, encoding="utf-8")
+    for icon_name in (
+        "favicon-32.png",
+        "favicon-64.png",
+        "apple-touch-icon.png",
+        "safari-pinned-tab.svg",
+    ):
+        shutil.copy2(ROOT / "assets" / icon_name, DIST / icon_name)
 
     assets = sorted((DIST / "assets").glob("*"))
     asset_bytes = sum(p.stat().st_size for p in assets)
