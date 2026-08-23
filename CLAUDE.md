@@ -5,7 +5,7 @@
 Dark, polished personal portfolio landing page for Shawn Espinosa. Feels like a
 premium personal data/code hub — not a corporate site, not a generic dashboard.
 The Seattle skyline photo (Space Needle + Mount Rainier at dusk) is the hero and
-the emotional anchor of the page. Visual reference: `example.png` in the repo root.
+the emotional anchor of the page. Visual reference: `docs/landing-page-reference.png`.
 
 **Color palette:**
 - Page background: `#080d1a` (near-black navy)

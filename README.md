@@ -92,6 +92,7 @@ To add a Coming Soon placeholder instead, append to `COMING_SOON`.
 | `assets/espinosa_ffl2.png` | Espinosa FFL Clubhouse thumbnail |
 | `assets/25_FFL_2.png` | {insert witty name here} FFL Museum thumbnail |
 | `assets/FFL_AND.png` | A New Dynasty FFL Museum thumbnail |
+| `assets/sleeper_dynasty.png` | Sleeper Dynasty FFL thumbnail |
 | `assets/concert_archive.png` | My Concert Archive thumbnail |
 | `assets/worldcup_hq_image.png` | World Cup card thumbnail |
 
