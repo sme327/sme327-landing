@@ -26,6 +26,7 @@ import shutil
 import sys
 import types
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).parent
 DIST = ROOT / "dist"
@@ -124,11 +125,15 @@ def social_image(body: str) -> str:
 def document(body: str, config: dict) -> str:
     title = config.get("page_title", "sme327")
     icon = config.get("page_icon", "🚀")
-    favicon = (
-        "data:image/svg+xml,"
-        f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
-        f"<text y='.9em' font-size='90'>{icon}</text></svg>"
-    ).replace("#", "%23")
+    icon_path = ROOT / icon if isinstance(icon, str) else None
+    if icon_path and icon_path.suffix.lower() == ".svg" and icon_path.is_file():
+        favicon = f"data:image/svg+xml,{quote(icon_path.read_text(encoding='utf-8'))}"
+    else:
+        favicon = (
+            "data:image/svg+xml,"
+            f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
+            f"<text y='.9em' font-size='90'>{icon}</text></svg>"
+        ).replace("#", "%23")
 
     return f"""<!doctype html>
 <html lang="en">
