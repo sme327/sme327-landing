@@ -3,7 +3,7 @@ import base64
 from pathlib import Path
 
 st.set_page_config(
-    page_title="sme327 | Project Hub",
+    page_title="sme327",
     page_icon="assets/favicon.svg",
     layout="wide",
     initial_sidebar_state="collapsed",
