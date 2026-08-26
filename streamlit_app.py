@@ -400,8 +400,8 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 /* ══════════════════════════════════════════════════════
    GENERAL SECTION (coming soon, etc.)
 ══════════════════════════════════════════════════════ */
-.section{{padding:0 3rem;background:#080d1a;}
-.sub-grid{{margin-top:14px;}
+.section{{padding:0 3rem;background:#080d1a;}}
+.sub-grid{{margin-top:14px;}}
 .section .proj-grid{{margin-bottom:8px;}}
 .section-hdr{{
   display:flex;align-items:center;gap:12px;
