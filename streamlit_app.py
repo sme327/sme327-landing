@@ -403,6 +403,8 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 .section{{padding:0 3rem;background:#080d1a;}}
 .sub-grid{{margin-top:14px;}}
 .section .proj-grid{{margin-bottom:8px;}}
+@media(max-width:1050px){{.proj-grid{{grid-template-columns:repeat(2,minmax(0,1fr));}}}}
+@media(max-width:720px){{.proj-grid{{grid-template-columns:1fr;}}}}
 .section-hdr{{
   display:flex;align-items:center;gap:12px;
   padding:44px 0 24px;
