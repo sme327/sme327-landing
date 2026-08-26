@@ -105,7 +105,7 @@ Listed in render order:
 | World Cup Family HQ | 2026 FIFA World Cup family tracker |
 | Sleeper Dynasty FFL | Graduated from Coming Soon. Awaiting artwork — the dict has no `thumbnail` key, so it renders the violet gradient placeholder. Drop in `assets/sleeper_dynasty.webp` and add the key to finish it. |
 
-Productivity & Tools (`TOOLS`): **{insert witty name here} Draft Room** — draft board + queue + keeper tool, live; **A New Dynasty Keeper Tool** — andkeepers.sme327.com, 2026 keeper selections, live (both use illustrated `icon_asset` tiles, brief in `docs/TOOL-ICONS-BRIEF.md`);
+Sections (2026-08-26): **Fantasy Football** (the three league museums, with `FOOTBALL_TOOLS` — Draft Room, Keeper Tool — as compact cards beneath them; this section floats over the hero), **Family** (Espinosa FFL Clubhouse, World Cup Family HQ), **Personal** (Sports Today, Concert Archive), **Tools** (`TOOLS`), **Coming Soon**. Each project dict carries a `section` key. Tools (`TOOLS`): **{insert witty name here} Draft Room** — draft board + queue + keeper tool, live; **A New Dynasty Keeper Tool** — andkeepers.sme327.com, 2026 keeper selections, live (both use illustrated `icon_asset` tiles, brief in `docs/TOOL-ICONS-BRIEF.md`);
 **Next** — project tracker for AI builds, no public link (renders a "Private build" chip)
 
 Coming soon: **NFL Playoff Pool**, **Women's World Cup**

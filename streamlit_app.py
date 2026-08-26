@@ -23,6 +23,7 @@ KEEPER_TOOL_URL    = "https://andkeepers.sme327.com"
 
 PROJECTS = [
     {
+        "section":     "personal",
         "title":       "Sports Today",
         "description": "A daily read on what's worth watching in sports.",
         "url":         SPORTS_TODAY_URL,
@@ -32,6 +33,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
     },
     {
+        "section":     "personal",
         "title":       "My Concert Archive",
         "description": "Every show I've been to, mapped by band, venue, and year.",
         "url":         CONCERT_ATLAS_URL,
@@ -41,6 +43,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",
     },
     {
+        "section":     "family",
         "title":       "Espinosa FFL Clubhouse",
         "description": "The Espinosa family fantasy football hub.",
         "url":         CLUBHOUSE_APP_URL,
@@ -50,6 +53,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 45%, #0a1a0a 100%)",
     },
     {
+        "section":     "football",
         "title":       "{insert witty name here} FFL Museum",
         "description": "25 seasons of league history, records, and memories.",
         "url":         FANTASY_APP_URL,
@@ -59,6 +63,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
     },
     {
+        "section":     "football",
         "title":       "A New Dynasty FFL Museum",
         "description": "Keeper league history, rivalries, and records.",
         "url":         DYNASTY_APP_URL,
@@ -68,6 +73,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #0a0a2a 0%, #1a1a4a 45%, #0a0a2a 100%)",
     },
     {
+        "section":     "football",
         "title":       "Sleeper Dynasty FFL",
         "description": "Dynasty league history, records, and rivalries.",
         "url":         SLEEPER_DYNASTY_URL,
@@ -77,6 +83,7 @@ PROJECTS = [
         "fallback_gradient": "linear-gradient(160deg, #150a25 0%, #4c1d95 45%, #150a25 100%)",
     },
     {
+        "section":     "family",
         "title":       "World Cup Family HQ",
         "description": "Our family's hub for the 2026 World Cup.",
         "url":         WORLD_CUP_APP_URL,
@@ -91,7 +98,8 @@ PROJECTS = [
 # cards — no thumbnail — so the section stays visually subordinate to the
 # featured projects above it. Entries with a "url" get a launch link; entries
 # without one get an honest label instead.
-TOOLS = [
+# Football tools render as compact cards beneath the league museums.
+FOOTBALL_TOOLS = [
     {
         "title":       "{insert witty name here} Draft Room",
         "description": "Live draft board, player queue, and keeper tool in one.",
@@ -108,6 +116,10 @@ TOOLS = [
         "icon_asset":  "assets/keeper_tool_icon.png",
         "accent":      "#d4af37",
     },
+]
+
+# Everything-else tools. It's fine for this to hold a single card.
+TOOLS = [
     {
         "title":       "Next",
         "description": "A project tracker for the AI tools I'm building — what's shipped, what's next.",
@@ -388,7 +400,9 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 /* ══════════════════════════════════════════════════════
    GENERAL SECTION (coming soon, etc.)
 ══════════════════════════════════════════════════════ */
-.section{{padding:0 3rem;background:#080d1a;}}
+.section{{padding:0 3rem;background:#080d1a;}
+.sub-grid{{margin-top:14px;}
+.section .proj-grid{{margin-bottom:8px;}}
 .section-hdr{{
   display:flex;align-items:center;gap:12px;
   padding:44px 0 24px;
@@ -470,27 +484,46 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Featured Projects (floats over hero bottom) ──────────────────────────
-    cards_html = "\n".join(project_card_html(p) for p in PROJECTS)
+    # ── Sections: Fantasy Football (floats over the hero) → Family → Personal → Tools ──
+    def cards(section: str) -> str:
+        return "\n".join(project_card_html(p) for p in PROJECTS if p.get("section") == section)
+
+    football_tools = "\n".join(tool_card_html(t) for t in FOOTBALL_TOOLS)
     st.markdown(f"""
 <div class="proj-section" id="projects">
   <div class="sec-hdr">
     <div class="sec-bar"></div>
-    Featured Projects
+    🏈 Fantasy Football
   </div>
   <div class="proj-grid">
-    {cards_html}
+    {cards("football")}
+  </div>
+  <div class="sc-grid sub-grid">
+    {football_tools}
   </div>
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Productivity & Tools ─────────────────────────────────────────────────
+    for section_id, heading, key in (("family", "🏡 Family", "family"), ("personal", "🎟️ Personal", "personal")):
+        st.markdown(f"""
+<div class="section" id="{section_id}">
+  <div class="section-hdr">
+    <div class="sec-bar"></div>
+    {heading}
+  </div>
+  <div class="proj-grid">
+    {cards(key)}
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    # ── Tools ────────────────────────────────────────────────────────────────
     sc_html = "\n".join(tool_card_html(t) for t in TOOLS)
     st.markdown(f"""
 <div class="section" id="tools">
   <div class="section-hdr">
     <div class="sec-bar"></div>
-    🛠️ Productivity &amp; Tools
+    🛠️ Tools
   </div>
   <div class="sc-grid">
     {sc_html}
