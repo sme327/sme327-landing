@@ -284,7 +284,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 .hero-content{{position:relative;z-index:2;padding:72px 3rem 0;max-width:640px;}}
 .hero-title{{font-size:86px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:16px;}}
 .hero-white{{color:#fff;}}
-.hero-blue{{color:#3b82f6;}}
+.hero-accent{{color:#f97316;text-shadow:0 0 28px rgba(249,115,22,0.35);}}
 .hero-tagline{{font-size:19px;font-weight:500;color:rgba(255,255,255,0.78);line-height:1.5;max-width:480px;}}
 
 /* ══════════════════════════════════════════════════════
@@ -479,7 +479,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-title">
-      <span class="hero-white">sme</span><span class="hero-blue">327</span>
+      <span class="hero-white">sme</span><span class="hero-accent">327</span>
     </div>
     <div class="hero-tagline">Exploring the world through sports &amp; data.</div>
   </div>
