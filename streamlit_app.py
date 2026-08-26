@@ -19,6 +19,7 @@ DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
 SPORTS_TODAY_URL   = "https://sports.sme327.com"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
 SLEEPER_DYNASTY_URL = "https://dynasty.sme327.com"
+KEEPER_TOOL_URL    = "https://andkeepers.sme327.com"
 
 PROJECTS = [
     {
@@ -92,11 +93,20 @@ PROJECTS = [
 # without one get an honest label instead.
 TOOLS = [
     {
-        "title":       "FFL Draft Room",
+        "title":       "{insert witty name here} Draft Room",
         "description": "Live draft board, player queue, and keeper tool in one.",
         "url":         DRAFT_ROOM_URL,
         "icon":        "📋",
+        "icon_asset":  "assets/draft_room_icon.png",
         "accent":      "#22c55e",
+    },
+    {
+        "title":       "A New Dynasty Keeper Tool",
+        "description": "Pick your 2026 keepers — prices, budget, and the deadline in one place.",
+        "url":         KEEPER_TOOL_URL,
+        "icon":        "🔑",
+        "icon_asset":  "assets/keeper_tool_icon.png",
+        "accent":      "#d4af37",
     },
     {
         "title":       "Next",
