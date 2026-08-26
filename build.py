@@ -131,10 +131,10 @@ def document(body: str, config: dict) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{DESCRIPTION}">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png?v=5">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
-<link rel="mask-icon" href="/safari-pinned-tab.svg?v=5" color="#f97316">
+<link rel="icon" href="/favicon.ico?v=6" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png?v=6">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{DESCRIPTION}">
@@ -203,11 +203,14 @@ def main() -> None:
     (DIST / "index.html").write_text(html, encoding="utf-8")
     (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
     (DIST / "robots.txt").write_text(ROBOTS, encoding="utf-8")
+    # No rel="mask-icon": Safari tints mask icons onto a white rounded square (in tabs, not just
+    # pinned tabs, as of Safari 26), which put a white box behind the orange needle. The PNG/ICO
+    # favicon is the intended tab icon — an orange square with the dark needle.
     for icon_name in (
+        "favicon.ico",
         "favicon-32.png",
         "favicon-64.png",
         "apple-touch-icon.png",
-        "safari-pinned-tab.svg",
     ):
         shutil.copy2(ROOT / "assets" / icon_name, DIST / icon_name)
 
