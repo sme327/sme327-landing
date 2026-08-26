@@ -131,10 +131,10 @@ def document(body: str, config: dict) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{DESCRIPTION}">
-<link rel="icon" href="/favicon.ico?v=6" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png?v=6">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=6">
+<link rel="icon" href="/favicon.ico?v=7" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png?v=7">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=7">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{DESCRIPTION}">
