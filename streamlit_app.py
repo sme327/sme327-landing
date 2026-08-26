@@ -309,7 +309,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 ══════════════════════════════════════════════════════ */
 .proj-grid{{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:22px;padding-bottom:0;
 }}
 .proj-card{{
