@@ -19,13 +19,24 @@ Cards render in this order (auto-fitting grid, left to right):
 
 | Card | URL Variable | Live URL |
 |---|---|---|
-| Sports Today | `SPORTS_TODAY_URL` | _not set — link disabled_ |
-| My Concert Archive | `CONCERT_ATLAS_URL` | concerts.sme327.com |
-| Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaffl.streamlit.app |
-| {insert witty name here} FFL Museum | `FANTASY_APP_URL` | insertwittynamehere.streamlit.app |
-| A New Dynasty FFL Museum | `DYNASTY_APP_URL` | anewdynasty.streamlit.app |
-| FFL Draft Room | `DRAFT_ROOM_URL` | _not set — link disabled_ |
+| {insert witty name here} FFL Museum | `FANTASY_APP_URL` | iwnh.sme327.com |
+| A New Dynasty FFL Museum | `DYNASTY_APP_URL` | and.sme327.com |
+| Dynasty 22 | `DYNASTY_22_URL` | dynasty.sme327.com |
+| Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaFFL.sme327.com |
 | World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
+| Sports Today | `SPORTS_TODAY_URL` | sports.sme327.com |
+| My Concert Archive | `CONCERT_ATLAS_URL` | concerts.sme327.com |
+
+Compact tool cards (`FOOTBALL_TOOLS`, then `TOOLS`):
+
+| Card | URL Variable | Live URL |
+|---|---|---|
+| {insert witty name here} Draft Room | `DRAFT_ROOM_URL` | iwnh-draft-2026.sme327.chatgpt.site |
+| A New Dynasty Keeper Tool | `KEEPER_TOOL_URL` | andkeepers.sme327.com |
+| Draft Queue | `DRAFT_QUEUE_URL` | _PIN-gated at queue.sme327.com — link disabled until a public version ships_ |
+| Next | — | _no link; "Private build" chip_ |
+| Asst Coach | `PRACTICE_PLANS_URL` | practice.sme327.com (the sign-in-free surface of coach.sme327.com) |
+| Our Home | `OUR_HOME_URL` | _PIN-gated at ourhome.sme327.com — link disabled until a public version ships_ |
 
 ## Also Built
 
@@ -48,8 +59,8 @@ which renders as a muted chip where the launch link would be:
 If one of these later becomes publicly reachable, move the dict to `PROJECTS`,
 swap `label` for `url`, and optionally set `cta` (e.g. `"View code →"`).
 
-Coming soon placeholders: **Sleeper Dynasty FFL League**, **NFL Playoff Pool**,
-and **Women's World Cup**.
+Coming soon placeholders: **NFL Playoff Pool**, **Women's World Cup**,
+**Champions Hall**, and **meow**.
 
 ---
 

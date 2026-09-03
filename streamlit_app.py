@@ -18,8 +18,14 @@ CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
 SPORTS_TODAY_URL   = "https://sports.sme327.com"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
-SLEEPER_DYNASTY_URL = "https://dynasty.sme327.com"
+DYNASTY_22_URL     = "https://dynasty.sme327.com"
 KEEPER_TOOL_URL    = "https://andkeepers.sme327.com"
+# Draft Queue and Our Home are live but PIN-gated; these point at the public,
+# sign-in-free versions once those exist, so both cards read as pending, not broken.
+DRAFT_QUEUE_URL    = "PASTE_DRAFT_QUEUE_PUBLIC_URL_HERE"
+OUR_HOME_URL       = "PASTE_OUR_HOME_PUBLIC_URL_HERE"
+# Asst Coach itself is PIN-gated; practice plans are its published, PIN-less surface.
+PRACTICE_PLANS_URL = "https://practice.sme327.com"
 
 PROJECTS = [
     {
@@ -74,9 +80,9 @@ PROJECTS = [
     },
     {
         "section":     "football",
-        "title":       "Sleeper Dynasty FFL",
-        "description": "Dynasty league history, records, and rivalries.",
-        "url":         SLEEPER_DYNASTY_URL,
+        "title":       "Dynasty 22",
+        "description": "Ten managers, auction startup, every season since 2022.",
+        "url":         DYNASTY_22_URL,
         "thumbnail":   "assets/sleeper_dynasty.webp",
         "icon":        "👑",
         "obj_pos":     "center center",
@@ -116,9 +122,18 @@ FOOTBALL_TOOLS = [
         "icon_asset":  "assets/keeper_tool_icon.png",
         "accent":      "#d4af37",
     },
+    {
+        "title":       "Draft Queue",
+        "description": "One pre-ranked queue per league, for use in any draft room.",
+        "url":         DRAFT_QUEUE_URL,
+        "cta":         "Public version coming soon",
+        "icon":        "📝",
+        "accent":      "#38bdf8",
+    },
 ]
 
-# Everything-else tools. It's fine for this to hold a single card.
+# Everything-else tools. Cards whose real app is PIN-gated link to the
+# public, sign-in-free version instead — pending until one exists.
 TOOLS = [
     {
         "title":       "Next",
@@ -128,11 +143,29 @@ TOOLS = [
         "icon_asset":  "assets/next_icon.png",
         "accent":      "#a78bfa",
     },
+    {
+        "title":       "Asst Coach",
+        "description": "A coaching workspace for two youth soccer teams — practices, lineups, and live subs.",
+        "url":         PRACTICE_PLANS_URL,
+        "cta":         "See the practice plans →",
+        "icon":        "🥅",
+        "accent":      "#34d399",
+    },
+    {
+        "title":       "Our Home",
+        "description": "Everything that needs doing around one house, on one shared list.",
+        "url":         OUR_HOME_URL,
+        "cta":         "Public version coming soon",
+        "icon":        "🛋️",
+        "accent":      "#fb923c",
+    },
 ]
 
 COMING_SOON = [
     {"svg": "🏈", "title": "NFL Playoff Pool",           "subtitle": "Coming soon", "color": "#f97316", "bg": "rgba(249,115,22,0.15)"},
     {"svg": "⚽️", "title": "Women's World Cup",          "subtitle": "Coming soon", "color": "#22c55e", "bg": "rgba(34,197,94,0.15)"},
+    {"svg": "🏆", "title": "Champions Hall",             "subtitle": "Coming soon", "color": "#d4af37", "bg": "rgba(212,175,55,0.15)"},
+    {"svg": "🐈", "title": "meow",                       "subtitle": "Coming soon", "color": "#38bdf8", "bg": "rgba(56,189,248,0.15)"},
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

@@ -101,14 +101,36 @@ Listed in render order:
 | My Concert Archive | Personal concert history — every show attended, by band/venue/year/state. |
 | Espinosa FFL Clubhouse | Family fantasy football hub |
 | {insert witty name here} FFL Museum | **This is the real league name** — 25-year history. Not a placeholder. |
-| A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016. Still on Streamlit; port pending. Note `dynasty.sme327.com` is taken by Sleeper Dynasty FFL, so this needs a different subdomain. |
+| A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016. Lives at `and.sme327.com` — `dynasty.sme327.com` belongs to Dynasty 22. |
 | World Cup Family HQ | 2026 FIFA World Cup family tracker |
-| Sleeper Dynasty FFL | Graduated from Coming Soon. Awaiting artwork — the dict has no `thumbnail` key, so it renders the violet gradient placeholder. Drop in `assets/sleeper_dynasty.webp` and add the key to finish it. |
+| Dynasty 22 | `dynasty.sme327.com`. Sleeper auction dynasty league, est. 2022 — **Dynasty 22 is the league's name**; "Sleeper" is only the platform, and the card was retitled 2026-09-03. Artwork is `assets/sleeper_dynasty.webp` (filename kept from the old title). |
 
-Sections (2026-08-26): **Fantasy Football** (the three league museums, with `FOOTBALL_TOOLS` — Draft Room, Keeper Tool — as compact cards beneath them; this section floats over the hero), **Family** (Espinosa FFL Clubhouse, World Cup Family HQ), **Personal** (Sports Today, Concert Archive), **Tools** (`TOOLS`), **Coming Soon**. Each project dict carries a `section` key. Tools (`TOOLS`): **{insert witty name here} Draft Room** — draft board + queue + keeper tool, live; **A New Dynasty Keeper Tool** — andkeepers.sme327.com, 2026 keeper selections, live (both use illustrated `icon_asset` tiles, brief in `docs/TOOL-ICONS-BRIEF.md`);
-**Next** — project tracker for AI builds, no public link (renders a "Private build" chip)
+Sections (2026-09-03): **Fantasy Football** (the three league museums, with `FOOTBALL_TOOLS` — Draft Room, Keeper Tool, Draft Queue — as compact cards beneath them; this section floats over the hero), **Family** (Espinosa FFL Clubhouse, World Cup Family HQ), **Personal** (Sports Today, Concert Archive), **Tools** (`TOOLS`), **Coming Soon**. Each project dict carries a `section` key.
 
-Coming soon: **NFL Playoff Pool**, **Women's World Cup**
+`FOOTBALL_TOOLS`: **{insert witty name here} Draft Room** — draft board + queue + keeper tool, live; **A New Dynasty Keeper Tool** — andkeepers.sme327.com, 2026 keeper selections, live (both use illustrated `icon_asset` tiles, brief in `docs/TOOL-ICONS-BRIEF.md`); **Draft Queue** — queue.sme327.com, pre-ranked queues for five leagues, pending (see below).
+
+`TOOLS`: **Next** — project tracker for AI builds, no public link (renders a "Private build" chip); **Asst Coach** — the coaching workspace, linked to its public surface (see below); **Our Home** — ourhome.sme327.com, pending (see below).
+
+### PIN-gated apps and their public surfaces
+
+Three builds are live but sit behind a per-user PIN, so the card must not send a
+visitor to a login screen:
+
+| App | Real (PIN-gated) URL | What the card links to |
+|---|---|---|
+| Asst Coach | `coach.sme327.com` | `practice.sme327.com` — the published practice plans, deliberately sign-in-free and field-allowlisted. Live today. |
+| Draft Queue | `queue.sme327.com` | `DRAFT_QUEUE_URL` — a `PASTE_...` placeholder until a public version exists |
+| Our Home | `ourhome.sme327.com` | `OUR_HOME_URL` — same |
+
+The two placeholders are a deliberate exception to the "never park finished work
+on the grey pending state" rule: a public/shareable version of each is planned,
+and the `cta` reads "Public version coming soon" so the grey link states the
+reason rather than looking broken. Replace the constant when the public build
+ships.
+
+Coming soon: **NFL Playoff Pool**, **Women's World Cup**, **Champions Hall**
+(`champions.sme327.com`, Astro site built but not deployed), **meow** (a Godot
+neighborhood cat game, `Games/meow`)
 
 ---
 
