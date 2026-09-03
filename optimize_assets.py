@@ -25,6 +25,12 @@ HERO_QUALITY = 85
 CARD_QUALITY = 82
 
 
+def is_icon(src: Path) -> bool:
+    """Icons and favicons are referenced as .png (the tool tiles inline them),
+    so converting them only leaves unused .webp files behind."""
+    return "icon" in src.stem
+
+
 def optimize(src: Path) -> Path | None:
     dst = src.with_suffix(".webp")
     if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
@@ -33,7 +39,9 @@ def optimize(src: Path) -> Path | None:
     with Image.open(src) as im:
         im = im.convert("RGB")
         # Anything twice as wide as it is tall is a banner, not a card thumbnail.
-        is_hero = im.width / im.height >= 2
+        # The mobile hero crop is squarer than that but is still a full-bleed
+        # background, so it earns the hero's width and quality by name.
+        is_hero = im.width / im.height >= 2 or src.stem.startswith("seattle_hero")
         max_width = HERO_MAX_WIDTH if is_hero else CARD_MAX_WIDTH
         if im.width > max_width:
             height = round(im.height * max_width / im.width)
@@ -51,6 +59,8 @@ def main() -> None:
 
     total_src = total_dst = 0
     for src in sources:
+        if is_icon(src):
+            continue
         dst = optimize(src)
         before = src.stat().st_size
         after = src.with_suffix(".webp").stat().st_size

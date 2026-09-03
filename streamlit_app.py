@@ -149,7 +149,8 @@ TOOLS = [
         "url":         PRACTICE_PLANS_URL,
         "cta":         "See the practice plans →",
         "icon":        "🥅",
-        "accent":      "#34d399",
+        "icon_asset":  "assets/asst_coach_icon.png",
+        "accent":      "#f59e0b",
     },
     {
         "title":       "Our Home",
@@ -157,7 +158,8 @@ TOOLS = [
         "url":         OUR_HOME_URL,
         "cta":         "Public version coming soon",
         "icon":        "🛋️",
-        "accent":      "#fb923c",
+        "icon_asset":  "assets/our_home_icon.png",
+        "accent":      "#a3e635",
     },
 ]
 
@@ -265,10 +267,20 @@ def coming_soon_card_html(item: dict) -> str:
 
 def render():
     hero_uri = img_to_data_uri("assets/seattle_hero.webp")
+    hero_mobile_uri = img_to_data_uri("assets/seattle_hero_mobile.webp")
     hero_bg_css = (
         f"background-image:url('{hero_uri}');background-size:cover;background-position:center top;"
         if hero_uri
         else "background:linear-gradient(135deg,#080d1a 0%,#0b1530 20%,#0f2044 38%,#080d1a 100%);"
+    )
+    # 1340x793 is the mobile crop's own aspect ratio — the hero takes its height
+    # from the photo so the photo never has to be cut to fit the hero.
+    hero_mobile_css = (
+        f".hero{{background-image:url('{hero_mobile_uri}');background-size:contain;"
+        "background-position:center bottom;background-repeat:no-repeat;"
+        "background-color:#080d1a;height:auto;aspect-ratio:1340/793;min-height:270px;}"
+        if hero_mobile_uri
+        else ""
     )
 
     st.markdown(f"""
@@ -498,10 +510,32 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 }}
 @media(max-width:600px){{
   .cs-grid{{grid-template-columns:1fr;}}
-  .hero-title{{font-size:46px;}}
-  .hero{{height:380px;}}
-  .hero-content{{padding-top:50px;}}
+  .hero-title{{font-size:42px;}}
+  .hero-content{{padding-top:34px;}}
   .proj-section{{margin-top:-60px;}}
+
+  /* A 2.5:1 panorama in a phone-shaped box is a keyhole: `cover` at 390px wide
+     shows only the middle 41% of the image, which is exactly the part with
+     neither Mount Rainier nor the Space Needle in it. So phones get their own
+     crop of the same photo, framed to hold both, and `contain` guarantees the
+     whole crop stays on screen at every width instead of being cropped again.
+     The height follows the image's aspect ratio; min-height only takes over on
+     the narrowest phones, and there the photo sits at the bottom of the box so
+     the leftover strip lands at the top, behind the title, rather than putting
+     the title across Rainier. */
+  {hero_mobile_css}
+
+  /* The desktop overlay darkens from the left, because the title sits left of
+     the skyline there. On a phone the title is above it, so the shading has to
+     turn with it — otherwise the left-hand 90% wash sits straight over Rainier. */
+  .hero-overlay{{
+    background:linear-gradient(to bottom,
+      rgba(8,13,26,.92) 0%,
+      rgba(8,13,26,.55) 26%,
+      rgba(8,13,26,.16) 52%,
+      rgba(8,13,26,.70) 86%,
+      rgba(8,13,26,.97) 100%);
+  }}
 }}
 </style>
 """, unsafe_allow_html=True)
