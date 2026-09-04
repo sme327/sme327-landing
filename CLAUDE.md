@@ -136,6 +136,9 @@ neighborhood cat game, `Games/meow`)
 
 ## How to Add a Future Project
 
+> `PUBLISHING.md` is the version to hand another agent — it covers the card,
+> the deploy, and new subdomains without assuming any context on this repo.
+
 1. Add URL constant at the top of `streamlit_app.py`
 2. Add dict to `PROJECTS` list (see README for field reference)
 3. Drop thumbnail in `assets/` — wide crop, keep under ~500KB

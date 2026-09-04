@@ -38,6 +38,9 @@ Compact tool cards (`FOOTBALL_TOOLS`, then `TOOLS`):
 | Asst Coach | `PRACTICE_PLANS_URL` | practice.sme327.com (the sign-in-free surface of coach.sme327.com) |
 | Our Home | `OUR_HOME_URL` | _PIN-gated at ourhome.sme327.com — link disabled until a public version ships_ |
 
+> **Publishing?** `PUBLISHING.md` is the short version: how to add a card, how the hub
+> deploys, how to stand up a new `*.sme327.com` subdomain. Start there.
+
 ## Also Built
 
 The `SHOWCASE` list holds projects that are real but not publicly hosted. Entries
