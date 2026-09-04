@@ -18,6 +18,7 @@ CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
 SPORTS_TODAY_URL   = "https://sports.sme327.com"
 CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
+MUSIC_URL          = "https://music.sme327.com"
 DYNASTY_22_URL     = "https://dynasty.sme327.com"
 KEEPER_TOOL_URL    = "https://andkeepers.sme327.com"
 # Draft Queue and Our Home are live but PIN-gated; these point at the public,
@@ -47,6 +48,16 @@ PROJECTS = [
         "icon":        "🎵",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0a2a 0%, #3d1a5c 45%, #1a0a2a 100%)",
+    },
+    {
+        "section":     "personal",
+        "title":       "20 Years of Listening",
+        "description": "Two decades of one music library, read as a retrospective.",
+        "url":         MUSIC_URL,
+        "thumbnail":   "assets/music_listening.webp",
+        "icon":        "🎧",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #1a0a12 0%, #5c1a2e 45%, #1a0a12 100%)",
     },
     {
         "section":     "family",

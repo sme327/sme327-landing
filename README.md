@@ -26,6 +26,7 @@ Cards render in this order (auto-fitting grid, left to right):
 | World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
 | Sports Today | `SPORTS_TODAY_URL` | sports.sme327.com |
 | My Concert Archive | `CONCERT_ATLAS_URL` | concerts.sme327.com |
+| 20 Years of Listening | `MUSIC_URL` | music.sme327.com |
 
 Compact tool cards (`FOOTBALL_TOOLS`, then `TOOLS`):
 
