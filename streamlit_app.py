@@ -42,7 +42,7 @@ PROJECTS = [
     {
         "section":     "personal",
         "title":       "My Concert Archive",
-        "description": "Every show I've been to, mapped by band, venue, and year.",
+        "description": "Every show I've been to.",
         "url":         CONCERT_ATLAS_URL,
         "thumbnail":   "assets/concert_archive.webp",
         "icon":        "🎵",
