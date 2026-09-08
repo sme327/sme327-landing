@@ -31,16 +31,6 @@ PRACTICE_PLANS_URL = "https://practice.sme327.com"
 PROJECTS = [
     {
         "section":     "personal",
-        "title":       "Sports Today",
-        "description": "A daily read on what's worth watching in sports.",
-        "url":         SPORTS_TODAY_URL,
-        "thumbnail":   "assets/sports_today.webp",
-        "icon":        "📊",
-        "obj_pos":     "center top",
-        "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
-    },
-    {
-        "section":     "personal",
         "title":       "My Concert Archive",
         "description": "Every show I've been to.",
         "url":         CONCERT_ATLAS_URL,
@@ -58,6 +48,16 @@ PROJECTS = [
         "icon":        "🎧",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0a12 0%, #5c1a2e 45%, #1a0a12 100%)",
+    },
+    {
+        "section":     "personal",
+        "title":       "Sports Today",
+        "description": "A daily read on what's worth watching in sports.",
+        "url":         SPORTS_TODAY_URL,
+        "thumbnail":   "assets/sports_today.webp",
+        "icon":        "📊",
+        "obj_pos":     "center top",
+        "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
     },
     {
         "section":     "family",
@@ -564,14 +564,26 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Sections: Fantasy Football (floats over the hero) → Family → Personal → Tools ──
+    # ── Sections: Personal (floats over the hero) → Fantasy Football → Family → Tools ──
     def cards(section: str) -> str:
         return "\n".join(project_card_html(p) for p in PROJECTS if p.get("section") == section)
 
+    st.markdown(f"""
+<div class="proj-section" id="personal">
+  <div class="sec-hdr">
+    <div class="sec-bar"></div>
+    🎟️ Personal
+  </div>
+  <div class="proj-grid">
+    {cards("personal")}
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
     football_tools = "\n".join(tool_card_html(t) for t in FOOTBALL_TOOLS)
     st.markdown(f"""
-<div class="proj-section" id="projects">
-  <div class="sec-hdr">
+<div class="section" id="football">
+  <div class="section-hdr">
     <div class="sec-bar"></div>
     🏈 Fantasy Football
   </div>
@@ -584,15 +596,14 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </div>
 """, unsafe_allow_html=True)
 
-    for section_id, heading, key in (("family", "🏡 Family", "family"), ("personal", "🎟️ Personal", "personal")):
-        st.markdown(f"""
-<div class="section" id="{section_id}">
+    st.markdown(f"""
+<div class="section" id="family">
   <div class="section-hdr">
     <div class="sec-bar"></div>
-    {heading}
+    🏡 Family
   </div>
   <div class="proj-grid">
-    {cards(key)}
+    {cards("family")}
   </div>
 </div>
 """, unsafe_allow_html=True)
