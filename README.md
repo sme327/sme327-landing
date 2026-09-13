@@ -1,6 +1,6 @@
 # sme327 | Project Hub
 
-Personal landing page for [sme327.streamlit.app](https://sme327.streamlit.app) — a dark, polished portfolio hub linking to all of Shawn's Streamlit projects.
+Personal landing page for [sme327.com](https://sme327.com) — a dark, polished portfolio hub linking to Shawn's projects. Written as a Streamlit script, built to static files by `build.py`, and hosted on Cloudflare Pages. (The old `sme327.streamlit.app` deployment was deleted 2026-09-13; `streamlit run` is now only a local preview.)
 
 ---
 
@@ -23,7 +23,7 @@ Cards render in this order (auto-fitting grid, left to right):
 | A New Dynasty FFL Museum | `DYNASTY_APP_URL` | and.sme327.com |
 | Dynasty 22 | `DYNASTY_22_URL` | dynasty.sme327.com |
 | Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaFFL.sme327.com |
-| World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app |
+| World Cup Family HQ | `WORLD_CUP_APP_URL` | espinosa-world-cup.streamlit.app (the one project still on Streamlit Cloud — stays there until it's migrated to sme327.com, owner decision 2026-09-13) |
 | Sports Today | `SPORTS_TODAY_URL` | sports.sme327.com |
 | My Concert Archive | `CONCERT_ATLAS_URL` | concerts.sme327.com |
 | 20 Years of Listening | `MUSIC_URL` | music.sme327.com |
@@ -34,7 +34,7 @@ Compact tool cards (`FOOTBALL_TOOLS`, then `TOOLS`):
 |---|---|---|
 | {insert witty name here} Draft Room | `DRAFT_ROOM_URL` | iwnh-draft-2026.sme327.chatgpt.site |
 | A New Dynasty Keeper Tool | `KEEPER_TOOL_URL` | andkeepers.sme327.com |
-| Draft Queue | `DRAFT_QUEUE_URL` | _PIN-gated at queue.sme327.com — link disabled until a public version ships_ |
+| My FFL (formerly Draft Queue) | `MY_FFL_URL` | _PIN-gated at myffl.sme327.com / queue.sme327.com — link disabled until a public version ships_ |
 | Next | — | _no link; "Private build" chip_ |
 | Asst Coach | `PRACTICE_PLANS_URL` | practice.sme327.com (the sign-in-free surface of coach.sme327.com) |
 | Our Home | `OUR_HOME_URL` | _PIN-gated at ourhome.sme327.com — link disabled until a public version ships_ |
@@ -87,7 +87,7 @@ Add an entry to the `PROJECTS` list in `streamlit_app.py`:
 Then define the URL constant at the top of the file alongside the others:
 
 ```python
-MY_APP_URL = "https://my-app.streamlit.app"
+MY_APP_URL = "https://myapp.sme327.com"
 ```
 
 Drop a thumbnail image into `assets/`. Thumbnails are cropped to `4/3` at the top
@@ -112,8 +112,8 @@ To add a Coming Soon placeholder instead, append to `COMING_SOON`.
 | `assets/worldcup_hq_image.png` | World Cup card thumbnail |
 
 All images are base64-encoded at runtime — no CDN needed. Missing images fall
-back to CSS gradients automatically. Keep thumbnails under ~500KB to avoid slow
-cold starts on Streamlit Cloud.
+back to CSS gradients automatically. Keep thumbnail masters under ~500KB so the
+local preview stays quick and the build has little to compress.
 
 ---
 
@@ -128,8 +128,8 @@ python build.py        # → dist/index.html + dist/assets/
 open dist/index.html   # verify locally before deploying
 ```
 
-There's one source of truth: edit `streamlit_app.py` and both the Streamlit
-deploy and the static site pick up the change. `build.py` is standard library
+There's one source of truth: edit `streamlit_app.py` and both the local
+`streamlit run` preview and the static site pick up the change. `build.py` is standard library
 only, so the host's build step needs nothing installed.
 
 `dist/` is gitignored — the host rebuilds it on each push. Alongside the HTML it
@@ -167,11 +167,11 @@ take the page from ~21MB to ~1.4MB.
 
 ---
 
-## Deployment (Streamlit Cloud)
+## Deployment
 
-1. Push this repo to GitHub.
-2. Go to [share.streamlit.io](https://share.streamlit.io) → **Create app**.
-3. Set **Main file path** → `streamlit_app.py`.
-4. Deploy — images in `assets/` are bundled with the repo and served automatically.
+Push to `main`; Cloudflare Pages runs `python build.py` and publishes `dist/` to
+sme327.com in a few minutes. The full steps and the verification check are in
+`PUBLISHING.md` §B.
 
-Streamlit Cloud redeploys automatically on every push to `main`.
+The Streamlit Community Cloud deployment (`sme327.streamlit.app`) was deleted on
+2026-09-13 — don't recreate it; Cloudflare is the only host.
