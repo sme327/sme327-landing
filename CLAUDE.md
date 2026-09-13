@@ -97,12 +97,12 @@ Listed in render order:
 
 | Title | Notes |
 |---|---|
-| Sports Today | Daily sports companion (MLB/WNBA opportunities). URL still pending. |
+| Sports Today | Daily sports companion (MLB/WNBA opportunities). Live at `sports.sme327.com`. |
 | My Concert Archive | Personal concert history — every show attended, by band/venue/year/state. |
 | 20 Years of Listening | `music.sme327.com`. A twenty-year iTunes library read as a retrospective. Card art is `assets/music_listening.webp` — a mosaic of the 48 most-played albums' covers, built from the project's own `site/artwork/`. |
 | Espinosa FFL Clubhouse | Family fantasy football hub |
 | {insert witty name here} FFL Museum | **This is the real league name** — 25-year history. Not a placeholder. |
-| A New Dynasty FFL Museum | Keeper/dynasty league, est. 2016. Lives at `and.sme327.com` — `dynasty.sme327.com` belongs to Dynasty 22. |
+| A New Dynasty FFL Museum | Keeper/dynasty league, est. 2018. Lives at `and.sme327.com` — `dynasty.sme327.com` belongs to Dynasty 22. |
 | World Cup Family HQ | 2026 FIFA World Cup family tracker |
 | Dynasty 22 | `dynasty.sme327.com`. Sleeper auction dynasty league, est. 2022 — **Dynasty 22 is the league's name**; "Sleeper" is only the platform, and the card was retitled 2026-09-03. Artwork is `assets/sleeper_dynasty.webp` (filename kept from the old title). |
 
