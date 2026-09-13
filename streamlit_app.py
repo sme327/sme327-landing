@@ -21,9 +21,9 @@ CONCERT_ATLAS_URL  = "https://concerts.sme327.com"
 MUSIC_URL          = "https://music.sme327.com"
 DYNASTY_22_URL     = "https://dynasty.sme327.com"
 KEEPER_TOOL_URL    = "https://andkeepers.sme327.com"
-# Draft Queue and Our Home are live but PIN-gated; these point at the public,
+# My FFL and Our Home are live but PIN-gated; these point at the public,
 # sign-in-free versions once those exist, so both cards read as pending, not broken.
-DRAFT_QUEUE_URL    = "PASTE_DRAFT_QUEUE_PUBLIC_URL_HERE"
+MY_FFL_URL         = "PASTE_MY_FFL_PUBLIC_URL_HERE"
 OUR_HOME_URL       = "PASTE_OUR_HOME_PUBLIC_URL_HERE"
 # Asst Coach itself is PIN-gated; practice plans are its published, PIN-less surface.
 PRACTICE_PLANS_URL = "https://practice.sme327.com"
@@ -134,9 +134,9 @@ FOOTBALL_TOOLS = [
         "accent":      "#d4af37",
     },
     {
-        "title":       "Draft Queue",
-        "description": "One pre-ranked queue per league, for use in any draft room.",
-        "url":         DRAFT_QUEUE_URL,
+        "title":       "My FFL",
+        "description": "Every league's matchup, this week's games, and my pool picks, on one phone.",
+        "url":         MY_FFL_URL,
         "cta":         "Public version coming soon",
         "icon":        "📝",
         "accent":      "#38bdf8",

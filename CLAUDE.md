@@ -106,9 +106,9 @@ Listed in render order:
 | World Cup Family HQ | 2026 FIFA World Cup family tracker |
 | Dynasty 22 | `dynasty.sme327.com`. Sleeper auction dynasty league, est. 2022 — **Dynasty 22 is the league's name**; "Sleeper" is only the platform, and the card was retitled 2026-09-03. Artwork is `assets/sleeper_dynasty.webp` (filename kept from the old title). |
 
-Sections (2026-09-03): **Fantasy Football** (the three league museums, with `FOOTBALL_TOOLS` — Draft Room, Keeper Tool, Draft Queue — as compact cards beneath them; this section floats over the hero), **Family** (Espinosa FFL Clubhouse, World Cup Family HQ), **Personal** (Sports Today, Concert Archive, 20 Years of Listening), **Tools** (`TOOLS`), **Coming Soon**. Each project dict carries a `section` key.
+Sections (2026-09-03): **Fantasy Football** (the three league museums, with `FOOTBALL_TOOLS` — Draft Room, Keeper Tool, My FFL — as compact cards beneath them; this section floats over the hero), **Family** (Espinosa FFL Clubhouse, World Cup Family HQ), **Personal** (Sports Today, Concert Archive, 20 Years of Listening), **Tools** (`TOOLS`), **Coming Soon**. Each project dict carries a `section` key.
 
-`FOOTBALL_TOOLS`: **{insert witty name here} Draft Room** — draft board + queue + keeper tool, live; **A New Dynasty Keeper Tool** — andkeepers.sme327.com, 2026 keeper selections, live (both use illustrated `icon_asset` tiles, brief in `docs/TOOL-ICONS-BRIEF.md`); **Draft Queue** — queue.sme327.com, pre-ranked queues for five leagues, pending (see below).
+`FOOTBALL_TOOLS`: **{insert witty name here} Draft Room** — draft board + queue + keeper tool, live; **A New Dynasty Keeper Tool** — andkeepers.sme327.com, 2026 keeper selections, live (both use illustrated `icon_asset` tiles, brief in `docs/TOOL-ICONS-BRIEF.md`); **My FFL** (formerly Draft Queue, renamed 2026-09-13) — myffl.sme327.com / queue.sme327.com, matchups, weekly slate, pool picks and draft queues for six leagues, pending (see below).
 
 `TOOLS`: **Next** — project tracker for AI builds, no public link (renders a "Private build" chip); **Asst Coach** — the coaching workspace, linked to its public surface (see below); **Our Home** — ourhome.sme327.com, pending (see below).
 
@@ -120,7 +120,7 @@ visitor to a login screen:
 | App | Real (PIN-gated) URL | What the card links to |
 |---|---|---|
 | Asst Coach | `coach.sme327.com` | `practice.sme327.com` — the published practice plans, deliberately sign-in-free and field-allowlisted. Live today. |
-| Draft Queue | `queue.sme327.com` | `DRAFT_QUEUE_URL` — a `PASTE_...` placeholder until a public version exists |
+| My FFL | `myffl.sme327.com` (also `queue.sme327.com`) | `MY_FFL_URL` — a `PASTE_...` placeholder until a public version exists |
 | Our Home | `ourhome.sme327.com` | `OUR_HOME_URL` — same |
 
 The two placeholders are a deliberate exception to the "never park finished work
