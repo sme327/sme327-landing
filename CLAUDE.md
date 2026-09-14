@@ -97,6 +97,7 @@ Listed in render order:
 
 | Title | Notes |
 |---|---|
+| Simon's Market | The family card game (Games/Magician's Market). Live at `simon.sme327.com` since 2026-09-14; card art is `assets/simons_market.webp` (Simon at his counter). |
 | Sports Today | Daily sports companion (MLB/WNBA opportunities). Live at `sports.sme327.com`. |
 | My Concert Archive | Personal concert history — every show attended, by band/venue/year/state. |
 | 20 Years of Listening | `music.sme327.com`. A twenty-year iTunes library read as a retrospective. Card art is `assets/music_listening.webp` — a mosaic of the 48 most-played albums' covers, built from the project's own `site/artwork/`. |

@@ -27,6 +27,7 @@ MY_FFL_URL         = "PASTE_MY_FFL_PUBLIC_URL_HERE"
 OUR_HOME_URL       = "PASTE_OUR_HOME_PUBLIC_URL_HERE"
 # Asst Coach itself is PIN-gated; practice plans are its published, PIN-less surface.
 PRACTICE_PLANS_URL = "https://practice.sme327.com"
+SIMONS_MARKET_URL = "https://simon.sme327.com"
 
 PROJECTS = [
     {
@@ -58,6 +59,16 @@ PROJECTS = [
         "icon":        "📊",
         "obj_pos":     "center top",
         "fallback_gradient": "linear-gradient(160deg, #1a0d00 0%, #4a2400 45%, #1a0d00 100%)",
+    },
+    {
+        "section":     "family",
+        "title":       "Simon's Market",
+        "description": "A cozy card game for the family: three days at a travelling owl magician's market, on one iPad.",
+        "url":         SIMONS_MARKET_URL,
+        "thumbnail":   "assets/simons_market.webp",
+        "icon":        "🦉",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #0e1830 0%, #2c4175 45%, #0e1830 100%)",
     },
     {
         "section":     "family",
