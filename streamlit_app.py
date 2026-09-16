@@ -575,7 +575,7 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
 </div>
 """, unsafe_allow_html=True)
 
-    # ── Sections: Personal (floats over the hero) → Fantasy Football → Family → Tools ──
+    # ── Sections: Personal (floats over the hero) → Family → Fantasy Football → Tools ──
     def cards(section: str) -> str:
         return "\n".join(project_card_html(p) for p in PROJECTS if p.get("section") == section)
 
@@ -587,6 +587,18 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   </div>
   <div class="proj-grid">
     {cards("personal")}
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+    st.markdown(f"""
+<div class="section" id="family">
+  <div class="section-hdr">
+    <div class="sec-bar"></div>
+    🏡 Family
+  </div>
+  <div class="proj-grid">
+    {cards("family")}
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -603,18 +615,6 @@ body,.stMarkdown p,.stMarkdown div,.stMarkdown span{{
   </div>
   <div class="sc-grid sub-grid">
     {football_tools}
-  </div>
-</div>
-""", unsafe_allow_html=True)
-
-    st.markdown(f"""
-<div class="section" id="family">
-  <div class="section-hdr">
-    <div class="sec-bar"></div>
-    🏡 Family
-  </div>
-  <div class="proj-grid">
-    {cards("family")}
   </div>
 </div>
 """, unsafe_allow_html=True)
