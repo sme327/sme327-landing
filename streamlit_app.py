@@ -13,6 +13,7 @@ st.set_page_config(
 
 WORLD_CUP_APP_URL  = "https://espinosa-world-cup.streamlit.app"
 FANTASY_APP_URL    = "https://iwnh.sme327.com"
+ACROSS_THE_LINE_URL = "https://iwnh.sme327.com/show/pilot"
 DYNASTY_APP_URL    = "https://and.sme327.com"
 CLUBHOUSE_APP_URL  = "https://espinosaFFL.sme327.com"
 DRAFT_ROOM_URL     = "https://iwnh-draft-2026.sme327.chatgpt.site"
@@ -89,6 +90,17 @@ PROJECTS = [
         "icon":        "🏈",
         "obj_pos":     "center center",
         "fallback_gradient": "linear-gradient(160deg, #1a0800 0%, #3d1500 45%, #1a0800 100%)",
+    },
+    {
+        "section":     "football",
+        "title":       "Across the Line",
+        "description": "An animated fantasy football recap. Real scores. Questionable decisions.",
+        "url":         ACROSS_THE_LINE_URL,
+        "cta":         "Watch the Show →",
+        "thumbnail":   "assets/across_the_line.webp",
+        "icon":        "🎙️",
+        "obj_pos":     "center center",
+        "fallback_gradient": "linear-gradient(160deg, #102b26 0%, #173c32 45%, #102b26 100%)",
     },
     {
         "section":     "football",

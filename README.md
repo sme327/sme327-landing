@@ -20,6 +20,7 @@ Cards render in this order (auto-fitting grid, left to right):
 | Card | URL Variable | Live URL |
 |---|---|---|
 | {insert witty name here} FFL Museum | `FANTASY_APP_URL` | iwnh.sme327.com |
+| Across the Line | `ACROSS_THE_LINE_URL` | iwnh.sme327.com/show/pilot — second Fantasy Football card, directly after IWNH Museum |
 | A New Dynasty FFL Museum | `DYNASTY_APP_URL` | and.sme327.com |
 | Dynasty 22 | `DYNASTY_22_URL` | dynasty.sme327.com |
 | Espinosa FFL Clubhouse | `CLUBHOUSE_APP_URL` | espinosaFFL.sme327.com |
@@ -106,6 +107,7 @@ To add a Coming Soon placeholder instead, append to `COMING_SOON`.
 | `assets/sports_today.png` | Sports Today thumbnail |
 | `assets/espinosa_ffl2.png` | Espinosa FFL Clubhouse thumbnail |
 | `assets/25_FFL_2.png` | {insert witty name here} FFL Museum thumbnail |
+| `assets/across_the_line.webp` | Across the Line thumbnail — existing show studio poster |
 | `assets/FFL_AND.png` | A New Dynasty FFL Museum thumbnail |
 | `assets/sleeper_dynasty.png` | Sleeper Dynasty FFL thumbnail |
 | `assets/concert_archive.png` | My Concert Archive thumbnail |
